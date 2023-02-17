@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 81267771042147026}
   - component: {fileID: 8041774839936287112}
   - component: {fileID: 1021606229365629317}
-  - component: {fileID: 4322174533389709359}
   m_Layer: 0
   m_Name: ARSceneCamera
   m_TagString: MainCamera
@@ -32,7 +31,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -108,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da5ec3a3669946bf90ad10bf4ffab8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 20333895847132536}
+  Camera: {fileID: 20333895847132536}
 --- !u!114 &1021606229365629317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,36 +125,3 @@ MonoBehaviour:
   _targetTexture: {fileID: 0}
   _nearClippingPlane: 0.1
   _farClippingPlane: 100
---- !u!114 &4322174533389709359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917084503044084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
-  m_AntialiasingQuality: 2
-  m_StopNaN: 0
-  m_Dithering: 0
-  m_ClearDepth: 1
-  m_AllowXRRendering: 1
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_Version: 2
