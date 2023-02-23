@@ -36,6 +36,7 @@ public class TapRayCastManager : MonoBehaviour
         {
             thisCharacter = Instantiate(characterPrefab);
             thisCharacter.transform.position = Camera.main.transform.position + Camera.main.transform.forward * 6;
+            return;
         }
         Ray raycast = Camera.main.ScreenPointToRay(touch.position);
         RaycastHit raycastHit;
