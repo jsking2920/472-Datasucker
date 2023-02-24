@@ -7,7 +7,6 @@ public class TapRayCastManager : MonoBehaviour
 {
     public GameObject characterPrefab;
 
-    private float count = 0;
     private GameObject thisCharacter;
 
     // Start is called before the first frame update
@@ -31,13 +30,6 @@ public class TapRayCastManager : MonoBehaviour
 
     void OnTapScreen(Touch touch)
     {
-        count += 1;
-        if (count == 1)
-        {
-            thisCharacter = Instantiate(characterPrefab);
-            thisCharacter.transform.position = Camera.main.transform.position + Camera.main.transform.forward * 6;
-            return;
-        }
         Ray raycast = Camera.main.ScreenPointToRay(touch.position);
         RaycastHit raycastHit;
         if (Physics.Raycast(raycast, out raycastHit))

@@ -7,6 +7,8 @@ public class DemoCharacter : InteractableComponent
 {
 
     public GameObject dialogueCanvasPrefab;
+    
+    private Animation anim;
 
     private GameObject currentDialogueCanvas;
     private bool isTalking = false;
@@ -14,7 +16,7 @@ public class DemoCharacter : InteractableComponent
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animation>();
     }
 
     // Update is called once per frame
@@ -26,15 +28,12 @@ public class DemoCharacter : InteractableComponent
     public override void OnObjectTapped()
     {
         base.OnObjectTapped();
-        if (Vector3.Distance(Camera.main.transform.position, transform.position) > InteractionRange)
-        {
-            return;
-        }
 
         if (!isTalking)
         {
             isTalking = true;
             currentDialogueCanvas = Instantiate(dialogueCanvasPrefab);
+            anim.Play("mixamo.com");
         }
         else
         {
