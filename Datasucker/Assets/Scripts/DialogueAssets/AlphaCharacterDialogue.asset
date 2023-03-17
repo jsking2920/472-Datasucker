@@ -18,23 +18,56 @@ MonoBehaviour:
     Responses:
     - Line: '"Good, you?"'
       Next: 1
+      Requires: 
+    - Line: '"What do you know about that body?"'
+      Next: 4
+      Requires: 00000000
+    Unlocks: 
     NewStart: 02000000
     Final: 0
   - Line: '"Not bad, thanks."'
     Responses:
     - Line: Ok
       Next: 0
+      Requires: 
+    Unlocks: 
     NewStart: 
     Final: 1
   - Line: '"Back again? What''s up?"'
     Responses:
     - Line: '"Nevermind."'
       Next: 3
+      Requires: 
+    - Line: '"What do you know about that body?"'
+      Next: 4
+      Requires: 00000000
+    Unlocks: 
     NewStart: 
     Final: 0
   - Line: '"Ok, see ya."'
     Responses:
     - Line: Ok
       Next: 0
+      Requires: 
+    Unlocks: 
     NewStart: 
     Final: 1
+  - Line: '"Oh, that guy? Apparently it was nobody important. I heard it was an accident
+      too."'
+    Responses:
+    - Line: Ok
+      Next: 0
+      Requires: 
+    Unlocks: 01000000
+    NewStart: 05000000
+    Final: 1
+  - Line: '"Go talk to someone else bro."'
+    Responses:
+    - Line: Ok
+      Next: 0
+      Requires: 
+    Unlocks: 01000000
+    NewStart: 
+    Final: 1
+  _currentStartLine: 0
+  _currentLine: 0

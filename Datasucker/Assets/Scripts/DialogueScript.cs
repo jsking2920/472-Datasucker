@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [System.Serializable]
@@ -7,6 +8,7 @@ public class Response
 {
     public string Line;
     public int Next;
+    public int[] Requires; // The indices in the progression manager needed for this option to appear
 }
 
 [System.Serializable]
@@ -14,7 +16,8 @@ public class DialogueLine
 {
     public string Line;
     public List<Response> Responses;
-    public int[] NewStart; // Use array just so we don't need to update start dialogue all the time (annoying to set up), and you can randomize it.
+    public int[] Unlocks; // Indices in progress manager unlocked when this dialogue is read
+    public int[] NewStart; // Use array here just so we don't need to update start dialogue all the time (annoying to set up), and you can randomize it.
     public bool Final;
 }
 
@@ -24,27 +27,34 @@ public class DialogueScript : ScriptableObject
     public int StartLine;
     public List<DialogueLine> Lines;
 
-    private int _currentStartLine;
-    private int _currentLine;
+    private ProgressManager _progressManager;
+
+    // Keep these public for dev purposes (annoying to reset otherwise, since data persists between runs)
+    public int _currentStartLine;
+    public int _currentLine;
 
     private void Awake()
     {
         _currentStartLine = StartLine;
+        _currentLine = _currentStartLine;
     }
 
     public void Activate()
     {
+        _progressManager = ProgressManager.Instance;
         _currentLine = _currentStartLine;
     }
 
     public string Read()
     {
+        // Update start dialogue line if needed
         int startOptionCount = Lines[_currentLine].NewStart.Length;
         if (startOptionCount > 0)
         {
             int newStartIndex = Random.Range(0, startOptionCount);
             _currentStartLine = Lines[_currentLine].NewStart[newStartIndex];
         }
+
         // Oof these names might need some work
         DialogueLine currentDialogueLine = Lines[_currentLine];
         if (currentDialogueLine.Responses.Count < 0)
@@ -57,8 +67,23 @@ public class DialogueScript : ScriptableObject
             int index = 0;
             foreach (var response in currentDialogueLine.Responses)
             {
-                responses = string.Concat(responses, "\n<link=", index, "><i>\t", response.Line, "</i></link>");
-                index++;
+                bool conditionsMet = true;
+                foreach (var i in response.Requires)
+                {
+                    conditionsMet &= _progressManager.ProgList[i];
+                }
+
+                if (conditionsMet)
+                {
+                    responses = string.Concat(responses, "\n<link=", index, "><i>\t", response.Line, "</i></link>");
+                    index++;
+                }
+            }
+
+            // Now update progression
+            foreach (var i in currentDialogueLine.Unlocks)
+            {
+                _progressManager.ProgList[i] = true;
             }
 
             return responses;
