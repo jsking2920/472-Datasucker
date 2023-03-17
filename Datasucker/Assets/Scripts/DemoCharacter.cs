@@ -6,12 +6,7 @@ using UnityEngine;
 public class DemoCharacter : InteractableComponent
 {
 
-    public GameObject dialogueCanvasPrefab;
-    
-    
-
-    private GameObject currentDialogueCanvas;
-    private bool isTalking = false;
+    public DialoguePanel ADialoguePanel;
 
     // Start is called before the first frame update
     void Start()
@@ -29,16 +24,7 @@ public class DemoCharacter : InteractableComponent
     {
         base.OnObjectTapped();
 
-        if (!isTalking)
-        {
-            isTalking = true;
-            currentDialogueCanvas = Instantiate(dialogueCanvasPrefab);
-            
-        }
-        else
-        {
-            isTalking = false;
-            Destroy(currentDialogueCanvas);
-        }
+        ADialoguePanel.gameObject.SetActive(true);
+        ADialoguePanel.ShowDialogue();
     }
 }
