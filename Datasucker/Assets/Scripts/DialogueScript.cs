@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [System.Serializable]
 public class Response
@@ -57,6 +59,13 @@ public class DialogueScript : ScriptableObject
 
         // Oof these names might need some work
         DialogueLine currentDialogueLine = Lines[_currentLine];
+        // Now update progression
+        foreach (var i in currentDialogueLine.Unlocks)
+        {
+            _progressManager.ProgList[i] = true;
+            Debug.Log("Updated progress");
+        }
+
         if (currentDialogueLine.Responses.Count < 0)
         {
             return currentDialogueLine.Line;
@@ -78,12 +87,6 @@ public class DialogueScript : ScriptableObject
                     responses = string.Concat(responses, "\n<link=", index, "><i>\t", response.Line, "</i></link>");
                     index++;
                 }
-            }
-
-            // Now update progression
-            foreach (var i in currentDialogueLine.Unlocks)
-            {
-                _progressManager.ProgList[i] = true;
             }
 
             return responses;

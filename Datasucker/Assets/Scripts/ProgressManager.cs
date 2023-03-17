@@ -27,6 +27,14 @@ public class ProgressManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        for (int i = 0; i < ProgList.Count; i++)
+        {
+            ProgList[i] = false;
+        }
+    }
+
     // Let's use a scriptable object later to help saving and all that
     public List<bool> ProgList;
 }
