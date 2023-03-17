@@ -41,7 +41,7 @@ public class DialogueScript : ScriptableObject
         _currentLine = _currentStartLine;
     }
 
-    public void Activate()
+    public void Initialize()
     {
         _progressManager = ProgressManager.Instance;
         _currentLine = _currentStartLine;

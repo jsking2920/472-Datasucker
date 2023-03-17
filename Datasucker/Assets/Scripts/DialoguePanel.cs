@@ -23,9 +23,10 @@ public class DialoguePanel : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    public void Initialize(DialogueScript dialogueScript)
     {
-        Dialogue.Activate();
+        Dialogue = dialogueScript;
+        Dialogue.Initialize();
     }
 
     private void OnTapPanel(Touch touch)

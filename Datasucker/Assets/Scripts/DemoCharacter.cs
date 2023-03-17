@@ -26,7 +26,7 @@ public class DemoCharacter : InteractableComponent
         base.OnObjectTapped();
 
         ADialoguePanel.gameObject.SetActive(true);
-        ADialoguePanel.Dialogue = ADialogueScript;
+        ADialoguePanel.Initialize(ADialogueScript);
         ADialoguePanel.ShowDialogue();
     }
 }
