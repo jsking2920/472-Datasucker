@@ -9,6 +9,10 @@ public class DialoguePanel : MonoBehaviour
 {
     public TextMeshProUGUI TextObject;
     public DialogueScript Dialogue;
+    
+    private AudioSource voiceBox;
+    public float volume = 0.7f;
+    [SerializeField] private AudioClip[] voices;
 
     // Update is called once per frame
     private void Update()
@@ -27,6 +31,7 @@ public class DialoguePanel : MonoBehaviour
     {
         Dialogue = dialogueScript;
         Dialogue.Initialize();
+        voiceBox = GetComponent<AudioSource>();
     }
 
     private void OnTapPanel(Touch touch)
@@ -52,5 +57,13 @@ public class DialoguePanel : MonoBehaviour
     public void ShowDialogue()
     {
         TextObject.text = Dialogue.Read();
+        playVoice();
+    }
+
+    private void playVoice()
+    {
+        int voice = Random.Range(0,4);
+        voiceBox.PlayOneShot(voices[voice], volume);
+        Debug.Log(voice);
     }
 }
