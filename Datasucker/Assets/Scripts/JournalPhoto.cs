@@ -8,6 +8,9 @@ public class JournalPhoto : MonoBehaviour
 {
 
     public string SubjectName;
+
+    public int[] Requirements;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,5 +39,17 @@ public class JournalPhoto : MonoBehaviour
             Sprite sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 100.0f);
             GetComponent<Image>().sprite = sprite;
         }
+    }
+
+    bool CheckRequirements() //use this once we've replaced the bool array with a map, that can be more generic and also descriptive (ex: BodySeen, GuyConfessed, etc)
+    {
+        bool met = true;
+        foreach (var req in ProgressManager.Instance.ProgList)
+        {
+            met &= req;
+            if (!met) break;
+        }
+
+        return met;
     }
 }
