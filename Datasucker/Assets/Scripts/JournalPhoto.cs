@@ -11,6 +11,11 @@ public class JournalPhoto : MonoBehaviour
 
     public int[] Requirements;
 
+    public DialoguePanel ADialoguePanel;
+    public DialogueScript ADialogueScript;
+
+    private bool _unlocked;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +28,16 @@ public class JournalPhoto : MonoBehaviour
         
     }
 
+    public void OnTap()
+    {
+        if (_unlocked)
+        {
+            ADialoguePanel.gameObject.SetActive(true);
+            ADialoguePanel.Initialize(ADialogueScript);
+            ADialoguePanel.ShowDialogue();
+        }
+    }
+
     void OnEnable()
     {
         UpdateImage();
@@ -31,7 +46,7 @@ public class JournalPhoto : MonoBehaviour
     void UpdateImage()
     {
         string path = Path.Combine(Application.persistentDataPath, "JournalPhotos", SubjectName + ".png");
-        if (File.Exists(path))
+        if (_unlocked = File.Exists(path))
         {
             byte[] fileData = File.ReadAllBytes(path);
             Texture2D texture = new Texture2D(2, 2);

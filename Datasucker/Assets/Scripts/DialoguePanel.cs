@@ -8,7 +8,7 @@ using UnityEngine;
 public class DialoguePanel : MonoBehaviour
 {
     public TextMeshProUGUI TextObject;
-    public DialogueScript Dialogue;
+    private DialogueScript _dialogue;
 
     // Update is called once per frame
     private void Update()
@@ -25,8 +25,8 @@ public class DialoguePanel : MonoBehaviour
 
     public void Initialize(DialogueScript dialogueScript)
     {
-        Dialogue = dialogueScript;
-        Dialogue.Initialize();
+        _dialogue = dialogueScript;
+        _dialogue.Initialize();
     }
 
     void OnEnable()
@@ -48,7 +48,7 @@ public class DialoguePanel : MonoBehaviour
         {
             // This should work if the tmp creators are sane individuals. If for some reason indices are out of order,
             // we should actually use the link id at this index instead of just passing the index.
-            if (Dialogue.Respond(linkIndex))
+            if (_dialogue.Respond(linkIndex))
             {
                 ShowDialogue();
             }
@@ -61,6 +61,6 @@ public class DialoguePanel : MonoBehaviour
 
     public void ShowDialogue()
     {
-        TextObject.text = Dialogue.Read();
+        TextObject.text = _dialogue.Read();
     }
 }
