@@ -80,6 +80,7 @@ public class DialogueScript : ScriptableObject
                 foreach (var i in response.Requires)
                 {
                     conditionsMet &= _progressManager.ProgList[i];
+                    if (!conditionsMet) break;
                 }
 
                 if (conditionsMet)

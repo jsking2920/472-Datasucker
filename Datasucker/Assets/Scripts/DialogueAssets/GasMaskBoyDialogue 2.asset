@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a7393d88f114c4494927782692fb5f, type: 3}
+  m_Name: GasMaskBoyDialogue 2
+  m_EditorClassIdentifier: 
+  StartLine: 0
+  Lines:
+  - Line: '"Hey, how''s it going?"'
+    Responses:
+    - Line: '"Good, you?"'
+      Next: 1
+      Requires: 
+    - Line: '"What do you know about that body?"'
+      Next: 4
+      Requires: 00000000
+    Unlocks: 
+    NewStart: 02000000
+    Final: 0
+  - Line: '"Not bad, thanks."'
+    Responses:
+    - Line: Ok
+      Next: 0
+      Requires: 
+    Unlocks: 
+    NewStart: 
+    Final: 1
+  - Line: '"Back again? What''s up?"'
+    Responses:
+    - Line: '"Nevermind."'
+      Next: 3
+      Requires: 
+    - Line: '"What do you know about that body?"'
+      Next: 4
+      Requires: 00000000
+    Unlocks: 
+    NewStart: 
+    Final: 0
+  - Line: '"Ok, see ya."'
+    Responses:
+    - Line: Ok
+      Next: 0
+      Requires: 
+    Unlocks: 
+    NewStart: 
+    Final: 1
+  - Line: '"Oh, that guy? Apparently it was nobody important. I heard it was an accident
+      too."'
+    Responses:
+    - Line: Ok
+      Next: 0
+      Requires: 
+    Unlocks: 01000000
+    NewStart: 05000000
+    Final: 1
+  - Line: '"Go talk to someone else bro."'
+    Responses:
+    - Line: Ok
+      Next: 0
+      Requires: 
+    Unlocks: 01000000
+    NewStart: 
+    Final: 1
+  _currentStartLine: 0
+  _currentLine: 0

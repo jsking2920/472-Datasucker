@@ -34,6 +34,16 @@ public class DialoguePanel : MonoBehaviour
         voiceBox = GetComponent<AudioSource>();
     }
 
+    void OnEnable()
+    {
+        ProgressManager.Instance.IsTalking = true;
+    }
+
+    void OnDisable()
+    {
+        ProgressManager.Instance.IsTalking = false;
+    }
+
     private void OnTapPanel(Touch touch)
     {
         // May want to allow no responses (meaning no links). For now at least one response like "ok" is required for this to work.
