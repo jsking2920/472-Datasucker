@@ -5,10 +5,6 @@ using UnityEngine;
 
 public class TapRayCastManager : MonoBehaviour
 {
-    public GameObject characterPrefab;
-
-    private GameObject thisCharacter;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +26,11 @@ public class TapRayCastManager : MonoBehaviour
 
     void OnTapScreen(Touch touch)
     {
+        // If journal is up or dialogue is up just return
+        if (ProgressManager.Instance.HasJournalOpen || ProgressManager.Instance.IsTalking)
+        {
+            return;
+        }
         Ray raycast = Camera.main.ScreenPointToRay(touch.position);
         RaycastHit raycastHit;
         if (Physics.Raycast(raycast, out raycastHit))

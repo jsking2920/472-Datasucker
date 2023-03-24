@@ -37,4 +37,7 @@ public class ProgressManager : MonoBehaviour
 
     // Let's use a scriptable object later to help saving and all that
     public List<bool> ProgList;
+
+    public bool HasJournalOpen = false;
+    public bool IsTalking = false;
 }
