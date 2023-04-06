@@ -19,8 +19,6 @@ namespace Niantic.ARDKExamples.WayspotAnchors
 {
     public class WayspotPlacementManager : MonoBehaviour
     {
-        [Tooltip("The anchor that will be placed")]
-        [SerializeField]
         private GameObject _anchorPrefab;
 
         [Tooltip("Camera used to place the anchors via raycasting")]
@@ -69,6 +67,11 @@ namespace Niantic.ARDKExamples.WayspotAnchors
             //  ArdkGlobalConfig.SetUserIdOnLogin(userId);
 
             _statusLog.text = "Initializing Session.";
+        }
+
+        public void SetPrefab(GameObject prefab)
+        {
+            _anchorPrefab = prefab;
         }
 
 
