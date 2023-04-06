@@ -44,6 +44,8 @@ public class PlayerManager : MonoBehaviour
     }
 
     // Let's use a scriptable object later to help saving and all that
+    public DialoguePanel DialoguePanel;
+
     public Dictionary<string, bool> Progress;
 
     public bool HasJournalOpen = false;

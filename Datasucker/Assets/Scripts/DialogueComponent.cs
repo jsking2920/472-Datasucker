@@ -5,13 +5,13 @@ using UnityEngine;
 public class DialogueComponent : InteractableComponent
 {
 
-    public DialoguePanel ADialoguePanel;
+    private DialoguePanel _dialoguePanel;
     public DialogueScript ADialogueScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _dialoguePanel = PlayerManager.Instance.DialoguePanel;
     }
 
     // Update is called once per frame
@@ -24,8 +24,8 @@ public class DialogueComponent : InteractableComponent
     {
         base.OnObjectTapped();
 
-        ADialoguePanel.gameObject.SetActive(true);
-        ADialoguePanel.Initialize(ADialogueScript);
-        ADialoguePanel.ShowDialogue();
+        _dialoguePanel.gameObject.SetActive(true);
+        _dialoguePanel.Initialize(ADialogueScript);
+        _dialoguePanel.ShowDialogue();
     }
 }

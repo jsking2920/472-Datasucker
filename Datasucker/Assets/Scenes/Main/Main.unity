@@ -433,6 +433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a67a6383039001246ab6b607fb4c912e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DialoguePanel: {fileID: 266223422}
   HasJournalOpen: 0
   IsTalking: 0
   _startProgress: []
