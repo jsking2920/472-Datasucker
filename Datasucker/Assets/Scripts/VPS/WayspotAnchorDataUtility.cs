@@ -13,12 +13,11 @@ namespace Niantic.ARDKExamples.WayspotAnchors
     public static class WayspotAnchorDataUtility
     {
         private const string DataKey = "wayspot_anchor_payloads";
-        private static string AnchorJson;
+        private static string _anchorJson;
 
-
-        public static void InitAnchorJson(string json)
+        public static void InitAnchorJson(TextAsset textAsset)
         {
-            AnchorJson = json;
+            _anchorJson = textAsset.text;
         }
 
         public static void SaveLocalPayloads(WayspotAnchorPayload[] wayspotAnchorPayloads)
@@ -26,7 +25,6 @@ namespace Niantic.ARDKExamples.WayspotAnchors
             var wayspotAnchorsData = new WayspotAnchorsData();
             wayspotAnchorsData.Payloads = wayspotAnchorPayloads.Select(a => a.Serialize()).ToArray();
             string wayspotAnchorsJson = JsonUtility.ToJson(wayspotAnchorsData);
-            PlayerPrefs.SetString(DataKey, wayspotAnchorsJson);
 
             string path = Application.persistentDataPath;
             if (!Directory.Exists(path))
@@ -39,7 +37,7 @@ namespace Niantic.ARDKExamples.WayspotAnchors
         public static WayspotAnchorPayload[] LoadLocalPayloads()
         {
             var payloads = new List<WayspotAnchorPayload>();
-            var wayspotAnchorsData = JsonUtility.FromJson<WayspotAnchorsData>(AnchorJson);
+            var wayspotAnchorsData = JsonUtility.FromJson<WayspotAnchorsData>(_anchorJson);
             foreach (var wayspotAnchorPayload in wayspotAnchorsData.Payloads)
             {
                 var payload = WayspotAnchorPayload.Deserialize(wayspotAnchorPayload);
