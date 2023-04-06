@@ -36,12 +36,12 @@ public class DialoguePanel : MonoBehaviour
 
     void OnEnable()
     {
-        ProgressManager.Instance.IsTalking = true;
+        PlayerManager.Instance.IsTalking = true;
     }
 
     void OnDisable()
     {
-        ProgressManager.Instance.IsTalking = false;
+        PlayerManager.Instance.IsTalking = false;
     }
 
     private void OnTapPanel(Touch touch)

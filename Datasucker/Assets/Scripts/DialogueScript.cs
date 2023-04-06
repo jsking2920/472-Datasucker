@@ -29,8 +29,6 @@ public class DialogueScript : ScriptableObject
     public int StartLine;
     public List<DialogueLine> Lines;
 
-    private ProgressManager _progressManager;
-
     // Keep these public for dev purposes (annoying to reset otherwise, since data persists between runs)
     public int _currentStartLine;
     public int _currentLine;
@@ -43,7 +41,6 @@ public class DialogueScript : ScriptableObject
 
     public void Initialize()
     {
-        _progressManager = ProgressManager.Instance;
         _currentLine = _currentStartLine;
     }
 
@@ -62,7 +59,7 @@ public class DialogueScript : ScriptableObject
         // Now update progression
         foreach (var i in currentDialogueLine.Unlocks)
         {
-            _progressManager.ProgList[i] = true;
+            PlayerManager.Instance.ProgList[i] = true;
             Debug.Log("Updated progress");
         }
 
@@ -79,7 +76,7 @@ public class DialogueScript : ScriptableObject
                 bool conditionsMet = true;
                 foreach (var i in response.Requires)
                 {
-                    conditionsMet &= _progressManager.ProgList[i];
+                    conditionsMet &= PlayerManager.Instance.ProgList[i];
                     if (!conditionsMet) break;
                 }
 

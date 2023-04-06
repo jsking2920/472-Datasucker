@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProgressManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
-    private static ProgressManager _instance;
+    private static PlayerManager _instance;
 
-    public static ProgressManager Instance
+    public static PlayerManager Instance
     {
         get
         {

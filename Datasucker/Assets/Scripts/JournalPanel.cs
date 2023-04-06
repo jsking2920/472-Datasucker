@@ -6,11 +6,11 @@ public class JournalPanel : MonoBehaviour
 {
     void OnEnable()
     {
-        ProgressManager.Instance.HasJournalOpen = true;
+        PlayerManager.Instance.HasJournalOpen = true;
     }
 
     void OnDisable()
     {
-        ProgressManager.Instance.HasJournalOpen = false;
+        PlayerManager.Instance.HasJournalOpen = false;
     }
 }
