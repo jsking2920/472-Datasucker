@@ -285,7 +285,6 @@ namespace Niantic.ARDKExamples.WayspotAnchors
             var go = Instantiate(_anchorPrefab, position, rotation);
 
             go.SetActive(startActive);
-            go.name = $"Anchor {id}";
             _wayspotAnchorGameObjects.Add(id, go);
 
             return go;
