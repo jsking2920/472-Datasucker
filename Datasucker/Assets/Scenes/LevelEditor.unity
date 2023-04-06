@@ -321,7 +321,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _anchorJson: {fileID: 4900000, guid: 77cc1d46dcf6da7408e4f75a1431d968, type: 3}
+  _anchorJsonTextAsset: {fileID: 4900000, guid: 62cd24ef74b48494fbd06a9be1cff2a4,
+    type: 3}
 --- !u!4 &97769333
 Transform:
   m_ObjectHideFlags: 0
@@ -1497,6 +1498,11 @@ PrefabInstance:
         type: 3}
       propertyPath: near clip plane
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5771607287588918498, guid: 6d0065cfd9be43a4aaea55bcad9c79e9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5771607287588918498, guid: 6d0065cfd9be43a4aaea55bcad9c79e9,
         type: 3}
