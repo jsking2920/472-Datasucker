@@ -8,24 +8,12 @@ using UnityEngine;
 public class DialoguePanel : MonoBehaviour
 {
     public TextMeshProUGUI TextObject;
+    public GameObject ResponsePanel;
     private DialogueScript _dialogue;
     
     private AudioSource voiceBox;
     public float volume = 0.7f;
     [SerializeField] private AudioClip[] voices;
-
-    // Update is called once per frame
-    private void Update()
-    {
-        if (PlatformAgnosticInput.touchCount > 0)
-        {
-            Touch touch = PlatformAgnosticInput.GetTouch(0);
-            if (touch.phase == TouchPhase.Began)
-            {
-                OnTapPanel(touch);
-            }
-        }
-    }
 
     public void Initialize(DialogueScript dialogueScript)
     {
@@ -44,36 +32,54 @@ public class DialoguePanel : MonoBehaviour
         PlayerManager.Instance.IsTalking = false;
     }
 
-    private void OnTapPanel(Touch touch)
-    {
-        // May want to allow no responses (meaning no links). For now at least one response like "ok" is required for this to work.
-        // If there are links:
-        int linkIndex = TMP_TextUtilities.FindIntersectingLink(TextObject, touch.position, null);
-        if (linkIndex != -1)
+    public void Respond(int index) {
+        if (_dialogue.Respond(index))
         {
-            // This should work if the tmp creators are sane individuals. If for some reason indices are out of order,
-            // we should actually use the link id at this index instead of just passing the index.
-            if (_dialogue.Respond(linkIndex))
-            {
-                ShowDialogue();
-            }
-            else
-            {
-                gameObject.SetActive(false);
-            }
+            ShowDialogue();
+        }
+        else   
+        {
+            gameObject.SetActive(false);
         }
     }
 
     public void ShowDialogue()
     {
-        TextObject.text = _dialogue.Read();
-        playVoice();
+        List<string> panelText = _dialogue.Read();
+        TextObject.text = panelText[0];
+        if (panelText.Count < 2) // Special case if no responses provided (should write ok manually but if we forget this covers us)
+        {
+            ResponsePanel.transform.GetChild(0).GetComponentInChildren<TextMeshProUGUI>().text = "Ok";
+            // Hide buttons besides first one
+            for (int i = 1; i < ResponsePanel.transform.childCount; i++)
+            {
+                ResponsePanel.transform.GetChild(i).gameObject.SetActive(false);
+            }
+        }
+        else 
+        {
+            for (int i = 0; i < ResponsePanel.transform.childCount; i++)
+            {
+                bool buttonShouldShow = i < panelText.Count - 1;
+                Transform childButton = ResponsePanel.transform.GetChild(i);
+                childButton.gameObject.SetActive(buttonShouldShow);
+                if (buttonShouldShow)
+                {
+                    ResponsePanel.transform.GetChild(i).GetComponentInChildren<TextMeshProUGUI>().text = panelText[i+1];
+                }
+            }
+        }
+        
+        if (_dialogue.HasVoice)
+        {
+            PlayVoice();
+        }
     }
 
-    private void playVoice()
+    private void PlayVoice()
     {
         int voice = Random.Range(0,4);
-        voiceBox.PlayOneShot(voices[voice], volume);
+        voiceBox?.PlayOneShot(voices[voice], volume);
         Debug.Log(voice);
     }
 }

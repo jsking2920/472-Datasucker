@@ -58,13 +58,6 @@ public class JournalPhoto : MonoBehaviour
 
     bool CheckRequirements() //use this once we've replaced the bool array with a map, that can be more generic and also descriptive (ex: BodySeen, GuyConfessed, etc)
     {
-        bool met = true;
-        foreach (var req in PlayerManager.Instance.ProgList)
-        {
-            met &= req;
-            if (!met) break;
-        }
-
-        return met;
+        return true;
     }
 }

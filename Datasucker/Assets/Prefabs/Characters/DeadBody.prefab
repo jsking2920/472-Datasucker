@@ -342,8 +342,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7488361572399196227}
   - component: {fileID: 4003380357891344964}
-  - component: {fileID: 5428522524992657219}
   - component: {fileID: 6836597542941906207}
+  - component: {fileID: 6572666054539428409}
   m_Layer: 0
   m_Name: DeadBody
   m_TagString: Untagged
@@ -383,24 +383,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1955418, y: 0.38511026, z: 0.10913758}
   m_Center: {x: 0.00096958026, y: 0.30744597, z: 0.0039070207}
---- !u!114 &5428522524992657219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7829456826138260217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 675dc2609c6e3424daf0e4c29f18767f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InteractionRange: 6
-  PhotoDiscoverable: 1
-  _audioSource: {fileID: 6836597542941906207}
-  _onTapClip: {fileID: 8300000, guid: d1499df673e58dd49893d2f0a75343ee, type: 3}
-  ADialoguePanel: {fileID: 0}
-  ADialogueScript: {fileID: 11400000, guid: f75611446b6ecb043bb016def93c8c35, type: 2}
 --- !u!82 &6836597542941906207
 AudioSource:
   m_ObjectHideFlags: 0
@@ -497,3 +479,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6572666054539428409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7829456826138260217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11adae25aa9696f4b8f496fab604a34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractionRange: 6
+  PhotoDiscoverable: 1
+  _audioSource: {fileID: 6836597542941906207}
+  _onTapClip: {fileID: 8300000, guid: d1499df673e58dd49893d2f0a75343ee, type: 3}
+  ADialoguePanel: {fileID: 0}
+  ADialogueScript: {fileID: 11400000, guid: f75611446b6ecb043bb016def93c8c35, type: 2}

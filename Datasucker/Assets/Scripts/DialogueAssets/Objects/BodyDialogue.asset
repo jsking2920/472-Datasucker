@@ -7,20 +7,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6a7393d88f114c4494927782692fb5f, type: 3}
-  m_Name: AlphaBodyDialogue
+  m_Name: BodyDialogue
   m_EditorClassIdentifier: 
-  StartLine: 0
+  Starts: []
   Lines:
   - Line: It's a dead body. Looks like it was killed by a really excited person.
     Responses:
     - Line: Ok
       Next: 0
-      Requires: 
-    Unlocks: 00000000
-    NewStart: 
-    Final: 1
-  _currentStartLine: 0
-  _currentLine: 0
+      Requires: []
+    Unlocks:
+    - BodySeen
+  HasVoice: 0

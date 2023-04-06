@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a7393d88f114c4494927782692fb5f, type: 3}
+  m_Name: CopDialogue
+  m_EditorClassIdentifier: 
+  Starts:
+  - Index: 3
+    Conditions:
+    - CopSeen
+  - Index: 0
+    Conditions: []
+  Lines:
+  - Line: '"Hm. What do you want? Can''t you see we''re busy here?"'
+    Responses:
+    - Line: '"What are you doing?"'
+      Next: 1
+      Requires: []
+    - Line: '"What do you know about that body?"'
+      Next: 4
+      Requires:
+      - BodySeen
+    Unlocks:
+    - CopSeen
+  - Line: '"I''m investigating what seems to be a murder. This place is dangerous,
+      you know."'
+    Responses:
+    - Line: '"Can I help?"'
+      Next: 2
+      Requires: []
+    - Line: Leave
+      Next: -1
+      Requires: []
+    Unlocks: []
+  - Line: '"Huh? Why would I let some rando like you help out with something as confidential
+      as this? Get out of here!"'
+    Responses:
+    - Line: Leave
+      Next: -1
+      Requires: []
+    Unlocks: []
+  - Line: '"You''re still here? What is it?"'
+    Responses:
+    - Line: '"What are you doing?"'
+      Next: 1
+      Requires: []
+    - Line: '"What do you know about that body?"'
+      Next: 4
+      Requires:
+      - BodySeen
+    Unlocks:
+    - CopSeen
+  - Line: '"Not much. We''ve identified the victim as a complete nobody."'
+    Responses:
+    - Line: Ok
+      Next: -1
+      Requires: []
+    Unlocks: []
+  HasVoice: 1

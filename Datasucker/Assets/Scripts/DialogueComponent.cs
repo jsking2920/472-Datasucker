@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
-public class DemoCharacter : InteractableComponent
+public class DialogueComponent : InteractableComponent
 {
 
     public DialoguePanel ADialoguePanel;

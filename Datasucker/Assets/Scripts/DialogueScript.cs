@@ -10,7 +10,7 @@ public class Response
 {
     public string Line;
     public int Next;
-    public int[] Requires; // The indices in the progression manager needed for this option to appear
+    public List<string> Requires; // The progress conditions required for this option to appear
 }
 
 [System.Serializable]
@@ -18,94 +18,104 @@ public class DialogueLine
 {
     public string Line;
     public List<Response> Responses;
-    public int[] Unlocks; // Indices in progress manager unlocked when this dialogue is read
-    public int[] NewStart; // Use array here just so we don't need to update start dialogue all the time (annoying to set up), and you can randomize it.
-    public bool Final;
+    public List<String> Unlocks; // Progress conditions unlocked when read
+}
+
+[System.Serializable]
+public class StartOption
+{
+    public int Index;
+    public List<string> Conditions;
 }
 
 [CreateAssetMenu(fileName = "Dialogue", menuName = "ScriptableObjects/Dialogue", order = 1)]
 public class DialogueScript : ScriptableObject
 {
-    public int StartLine;
+    public List<StartOption> Starts;
     public List<DialogueLine> Lines;
 
-    // Keep these public for dev purposes (annoying to reset otherwise, since data persists between runs)
-    public int _currentStartLine;
-    public int _currentLine;
+    public bool HasVoice;
 
-    private void Awake()
-    {
-        _currentStartLine = StartLine;
-        _currentLine = _currentStartLine;
-    }
+    private int _currentLineIndex;
 
     public void Initialize()
     {
-        _currentLine = _currentStartLine;
+        _currentLineIndex = FindStartLine();
+        Debug.Log(_currentLineIndex);
     }
 
-    public string Read()
+    private int FindStartLine() 
     {
-        // Update start dialogue line if needed
-        int startOptionCount = Lines[_currentLine].NewStart.Length;
-        if (startOptionCount > 0)
+        if (Starts.Count == 0) return 0;
+        foreach (var line in Starts) 
         {
-            int newStartIndex = Random.Range(0, startOptionCount);
-            _currentStartLine = Lines[_currentLine].NewStart[newStartIndex];
+            bool met = true;
+            foreach (var condition in line.Conditions)
+            {
+                met &= PlayerManager.Instance.CheckProgress(condition); // Checks each condition for possible starting line
+                if (!met) break;
+            }
+            if (met) 
+            {
+                return line.Index;
+            }
         }
+        return Starts[Starts.Count - 1].Index; // Last item should have no condition anyway but yk. Possibly return -1 here instead and prevent talking if no options.
+    }
 
-        // Oof these names might need some work
-        DialogueLine currentDialogueLine = Lines[_currentLine];
+    public List<string> Read()
+    {
+        Debug.Log(_currentLineIndex);
+        DialogueLine currentDialogueLine = Lines[_currentLineIndex];
         // Now update progression
         foreach (var i in currentDialogueLine.Unlocks)
         {
-            PlayerManager.Instance.ProgList[i] = true;
+            PlayerManager.Instance.UpdateProgress(i, true);
             Debug.Log("Updated progress");
         }
 
-        if (currentDialogueLine.Responses.Count < 0)
+        List<string> outLines = new List<string>();
+        outLines.Add(currentDialogueLine.Line);
+
+        if (currentDialogueLine.Responses.Count > 0)
         {
-            return currentDialogueLine.Line;
-        }
-        else
-        {
-            string responses = string.Concat(currentDialogueLine.Line, '\n');
-            int index = 0;
             foreach (var response in currentDialogueLine.Responses)
             {
                 bool conditionsMet = true;
-                foreach (var i in response.Requires)
+                foreach (var condition in response.Requires)
                 {
-                    conditionsMet &= PlayerManager.Instance.ProgList[i];
+                    conditionsMet &= PlayerManager.Instance.CheckProgress(condition);
                     if (!conditionsMet) break;
                 }
-
                 if (conditionsMet)
                 {
-                    responses = string.Concat(responses, "\n<link=", index, "><i>\t", response.Line, "</i></link>");
-                    index++;
+                    outLines.Add(response.Line);
                 }
             }
-
-            return responses;
         }
+
+        return outLines;
     }
 
-    public bool Respond(int index = 0)
+    public bool Respond(int responseIndex = 0) //bool so that the dialogue panel knows when to close
     {
-        if (Lines[_currentLine].Final)
+        if (Lines[_currentLineIndex].Responses.Count == 0)
         {
-            return false;
-        }
-        if (Lines[_currentLine].Responses.Count == 0)
-        {
-            _currentLine += 1;
+            _currentLineIndex += 1;
         }
         else
         {
-            _currentLine = Lines[_currentLine].Responses[index].Next;
+            int next = Lines[_currentLineIndex].Responses[responseIndex].Next;
+            if (_currentLineIndex == next)
+            {
+                _currentLineIndex += 1;
+            }
+            else
+            {
+                _currentLineIndex = next;
+            }
         }
 
-        return _currentLine < Lines.Count;
+        return _currentLineIndex >= 0 && _currentLineIndex < Lines.Count;
     }
 }
