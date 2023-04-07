@@ -12,18 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a7393d88f114c4494927782692fb5f, type: 3}
   m_Name: criminalDialog
   m_EditorClassIdentifier: 
-  Starts: []
+  Starts:
+  - Index: 5
+    Conditions:
+    - criminalSeen
+  - Index: 0
+    Conditions: []
   Lines:
-  - Line: "\u201CDon\u2019t look at me! I haven\u2019t done anything wrong here,
+  - Line: "\u201CWhat are you looking at? I haven\u2019t done anything wrong here,
       but I suppose there\u2019s no use telling that to you.\u201D "
     Responses:
-    - Line: Know anything about the victim?
-      Next: 1
-      Requires: []
     - Line: Leave
       Next: -1
       Requires: []
-    Unlocks: []
+    - Line: Know anything about the victim?
+      Next: 1
+      Requires: []
+    Unlocks:
+    - criminalSeen
   - Line: "\u201CI don\u2019t know anything about him, he\u2019s just some mall employee.\""
     Responses:
     - Line: Where were you last night?
@@ -32,18 +38,21 @@ MonoBehaviour:
       - '!criminalLastNight'
     - Line: Empty holster?
       Next: 3
-      Requires: []
+      Requires:
+      - '!criminalGun'
     - Line: Leave
       Next: -1
       Requires: []
-    Unlocks: []
+    Unlocks:
+    - criminalDoesntKnowVictim
   - Line: "\u201CI was here in the evening, but I left at night. I did overhear the
       victim and  that custodian over there having a very heated\u2026 discussion,
       before I left. \""
     Responses:
     - Line: What heated discussion?
       Next: 4
-      Requires: []
+      Requires:
+      - '!KnowAboutArgument'
     - Line: Leave
       Next: -1
       Requires: []
@@ -58,7 +67,8 @@ MonoBehaviour:
     - Line: Thermal weapom, noted
       Next: 1
       Requires: []
-    Unlocks: []
+    Unlocks:
+    - criminalGun
   - Line: "\u201CI couldn\u2019t hear the details, but they were really shouting
       at each other,  something about something \u201Cbeing too risky\u201D, and
       \u201Cwasted opportunities\u201D.  The officer came up a couple times too.
@@ -69,7 +79,26 @@ MonoBehaviour:
       Requires: []
     Unlocks:
     - KnowAboutArgument
-  - Line: 
-    Responses: []
+  - Line: '"What else do you want from me?"'
+    Responses:
+    - Line: Leave
+      Next: -1
+      Requires: []
+    - Line: Know anything about the victim?
+      Next: 1
+      Requires:
+      - '!criminalDoesntKnowVictim'
+    - Line: Where were you last night?
+      Next: 2
+      Requires:
+      - '!criminalLastNight'
+    - Line: Empty holster?
+      Next: 3
+      Requires:
+      - '!criminalGun'
+    - Line: What heated discussion?
+      Next: 4
+      Requires:
+      - '!KnowAboutArgument'
     Unlocks: []
   HasVoice: 0

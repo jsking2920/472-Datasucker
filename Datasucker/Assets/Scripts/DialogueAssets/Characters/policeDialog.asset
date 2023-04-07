@@ -15,7 +15,7 @@ MonoBehaviour:
   Starts:
   - Index: 5
     Conditions:
-    - seenPolice
+    - policeSeen
   - Index: 0
     Conditions:
     - seenPolice
@@ -30,7 +30,7 @@ MonoBehaviour:
       Next: -1
       Requires: []
     Unlocks:
-    - seenPolice
+    - policeSeen
   - Line: "\u201CHe works here as a janitor. Time of death, 2am last night. Cause
       of death,  gun shot\u201D "
     Responses:
@@ -77,6 +77,9 @@ MonoBehaviour:
   - Line: '"Huh? Why would I let some rando like you help out with something as confidential
       as this? Get out of here!"'
     Responses:
+    - Line: Leave
+      Next: -1
+      Requires: []
     - Line: What do you know about the victim, officer?
       Next: 1
       Requires:
@@ -90,8 +93,5 @@ MonoBehaviour:
       Requires:
       - policeLocationKnown
       - '!confirmedPoliceLocation'
-    - Line: Leave
-      Next: -1
-      Requires: []
     Unlocks: []
   HasVoice: 0
