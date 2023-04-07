@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a7393d88f114c4494927782692fb5f, type: 3}
+  m_Name: policeDialog
+  m_EditorClassIdentifier: 
+  Starts: []
+  Lines:
+  - Line: "\u201CI see they\u2019ve hired outside help for this worthless nobody.
+      Seems like a waste of money to me.\u201D "
+    Responses:
+    - Line: What do you know about the victim, officer?
+      Next: 1
+      Requires: []
+    - Line: Leave
+      Next: -1
+      Requires: []
+    Unlocks: []
+  - Line: "\u201CHe works here as a janitor. Time of death, 2am last night. Cause
+      of death,  gun shot\u201D "
+    Responses:
+    - Line: Gun shot, who does the gun belong to?
+      Next: 2
+      Requires: []
+    - Line: Leave
+      Next: -1
+      Requires: []
+    Unlocks: []
+  - Line: "\u201CThe gun belongs to that guy right there. He keeps saying he doesn\u2019t
+      know,  but it sure is evidence\u201D "
+    Responses:
+    - Line: Where were you last night?
+      Next: 3
+      Requires:
+      - PoliceLocationKnown
+    - Line: Leave
+      Next: -1
+      Requires: []
+    Unlocks: []
+  - Line: " \u201CI was patrolling in the area. It\u2019s not the safest zone in
+      the city for sure.\u201D"
+    Responses:
+    - Line: Anyone suspicious you saw?
+      Next: 4
+      Requires: []
+    - Line: Leave
+      Next: -1
+      Requires: []
+    Unlocks: []
+  - Line: "\u201CSuspicious\u2026you know what? Now I think about it, this guy has
+      been  following and eavesdropping the victim since yesterday. I usually ignore
+      them;  it\u2019s just what these people do all day anyways\u201D  "
+    Responses:
+    - Line: Leave
+      Next: -1
+      Requires: []
+    - Line: Anyone suspicious you saw?
+      Next: 4
+      Requires: []
+    Unlocks: []
+  HasVoice: 0

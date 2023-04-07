@@ -1291,8 +1291,7 @@ MonoBehaviour:
   PhotoDiscoverable: 1
   _audioSource: {fileID: 2425266236017225629}
   _onTapClip: {fileID: 8300000, guid: d1499df673e58dd49893d2f0a75343ee, type: 3}
-  ADialoguePanel: {fileID: 0}
-  ADialogueScript: {fileID: 11400000, guid: d1ee133519c189045bf543280c8f9f44, type: 2}
+  ADialogueScript: {fileID: 11400000, guid: 8b8f3f2230fbca54197ca6d32ac30ce0, type: 2}
 --- !u!82 &2425266236017225629
 AudioSource:
   m_ObjectHideFlags: 0
