@@ -64,6 +64,9 @@ namespace Niantic.ARDKExamples.WayspotAnchors
         [SerializeField]
         private PrefabContainer _prefabContainer;
 
+        [SerializeField]
+        private bool CanPlace;
+
         private void Awake()
         {
             // This is necessary for setting the user id associated with the current user. 
@@ -119,7 +122,7 @@ namespace Niantic.ARDKExamples.WayspotAnchors
             }
             //Get the pose where you tap on the screen
             var touchSuccess = TryGetTouchInput(out Matrix4x4 localPose);
-            if (touchSuccess)
+            if (CanPlace && touchSuccess)
             {
                 if (_wayspotAnchorService.LocalizationState == LocalizationState.Localized)
                 {
@@ -246,6 +249,7 @@ namespace Niantic.ARDKExamples.WayspotAnchors
         public void RestartWayspotAnchorService()
         {
             _wayspotAnchorService.Restart();
+            _localizedReady = false;
         }
 
         private void HandleSessionInitialized(AnyARSessionInitializedArgs args)

@@ -239,7 +239,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _anchorJsonTextAsset: {fileID: 4900000, guid: 77cc1d46dcf6da7408e4f75a1431d968,
+  _anchorJsonTextAsset: {fileID: 4900000, guid: 2436344810a2b9246884dffc39015f0d,
     type: 3}
   _prefabContainer: {fileID: 11400000, guid: 457fe157f068712488eb0d2fb331d2dc, type: 2}
 --- !u!4 &97769333
@@ -864,7 +864,17 @@ PrefabInstance:
     - target: {fileID: 8938985189304405012, guid: a8b541b4d70a7f3488c47a0295cd8e63,
         type: 3}
       propertyPath: m_UiScaleMode
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8938985189304405012, guid: a8b541b4d70a7f3488c47a0295cd8e63,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 8938985189304405012, guid: a8b541b4d70a7f3488c47a0295cd8e63,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 2400
       objectReference: {fileID: 0}
     - target: {fileID: 8938985189304405014, guid: a8b541b4d70a7f3488c47a0295cd8e63,
         type: 3}
