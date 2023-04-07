@@ -60,7 +60,7 @@ public class DialoguePanel : MonoBehaviour
         {
             for (int i = 0; i < ResponsePanel.transform.childCount; i++)
             {
-                bool buttonShouldShow = i < panelText.Count - 1;
+                bool buttonShouldShow = i < panelText.Count - 1  && !panelText[i+1].Equals(""); //xiao changed this thing
                 Transform childButton = ResponsePanel.transform.GetChild(i);
                 childButton.gameObject.SetActive(buttonShouldShow);
                 if (buttonShouldShow)

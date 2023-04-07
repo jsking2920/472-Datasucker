@@ -88,15 +88,22 @@ public class DialogueScript : ScriptableObject
                     {
                         conditionsMet &= !PlayerManager.Instance.CheckProgress(condition.Substring(1));
                     }
-                    else 
+
+                    else
                     {
                         conditionsMet &= PlayerManager.Instance.CheckProgress(condition);
                     }
                     if (!conditionsMet) break;
                 }
+        
                 if (conditionsMet)
                 {
                     outLines.Add(response.Line);
+                }
+                //Xiao added this "else"
+                else
+                {
+                    outLines.Add("");
                 }
             }
         }
