@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6a7393d88f114c4494927782692fb5f, type: 3}
-  m_Name: BodyPhoto
+  m_Name: GunPhoto
   m_EditorClassIdentifier: 
   Starts: []
   Lines:
-  - Line: A person that appears to have died from falling, followed by being shot
-      with a bullet.
+  - Line: A laser pistol, well-worn. Found near the dead body.
     Responses:
-    - Line: Done
+    - Line: 
       Next: -1
       Requires: []
     Unlocks: []

@@ -25,7 +25,8 @@ MonoBehaviour:
     - Line: Nod...
       Next: 1
       Requires: []
-    Unlocks: []
+    Unlocks:
+    - gasSeen
   - Line: "\u201CI\u2019m a custodian here, although I suppose I\u2019ve been roped
       into his mess.\u201D "
     Responses:

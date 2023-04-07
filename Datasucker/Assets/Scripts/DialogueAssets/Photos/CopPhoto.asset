@@ -10,17 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6a7393d88f114c4494927782692fb5f, type: 3}
-  m_Name: InteractableCharacterPhoto
+  m_Name: CopPhoto
   m_EditorClassIdentifier: 
-  StartLine: 0
+  Starts: []
   Lines:
-  - Line: I met a very excited person near a dead body.
+  - Line: An imposing policeman. He thinks the killer is the suspicious man in the
+      stairwell.
     Responses:
-    - Line: Done
-      Next: 0
-      Requires: 
-    Unlocks: 
-    NewStart: 
-    Final: 1
-  _currentStartLine: 0
-  _currentLine: 0
+    - Line: Ok
+      Next: -1
+      Requires: []
+    Unlocks: []
+  HasVoice: 0

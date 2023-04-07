@@ -7,26 +7,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6a7393d88f114c4494927782692fb5f, type: 3}
-  m_Name: BodyDialogue
+  m_Name: CriminalPhoto
   m_EditorClassIdentifier: 
   Starts: []
   Lines:
-  - Line: A corpse lies broken on the floor, a gunshot wound in its chest.
-    Responses:
-    - Line: Inspect body
-      Next: 1
-      Requires: []
-    Unlocks: []
-  - Line: The victim clearly fell from a great height, judging by the contorted position
-      of their broken limbs. The clothes around the gunshot wound are soaked in blood,
-      now dry, but still fresh.
+  - Line: A shady character clad in dangerous equipment. He seems to be missing a
+      gun.
     Responses:
     - Line: Ok
       Next: -1
       Requires: []
-    Unlocks:
-    - bodySeen
+    Unlocks: []
   HasVoice: 0

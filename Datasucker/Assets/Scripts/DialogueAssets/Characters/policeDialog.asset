@@ -42,7 +42,7 @@ MonoBehaviour:
       Requires: []
     Unlocks:
     - knownBasicInfoFromPolice
-  - Line: "\u201CThe gun belongs to that guy right there. He keeps saying he doesn\u2019t
+  - Line: "\u201CThe gun belongs to that guy over there. He keeps saying he doesn\u2019t
       know,  but it sure is evidence\u201D "
     Responses:
     - Line: Were you here yesterday too?

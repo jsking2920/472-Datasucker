@@ -9,7 +9,7 @@ public class JournalPhoto : MonoBehaviour
 
     public string SubjectName;
 
-    public int[] Requirements;
+    public string[] Requirements;
 
     public DialoguePanel ADialoguePanel;
     public DialogueScript ADialogueScript;
@@ -46,7 +46,7 @@ public class JournalPhoto : MonoBehaviour
     void UpdateImage()
     {
         string path = Path.Combine(Application.persistentDataPath, "JournalPhotos", SubjectName + ".png");
-        if (_unlocked = File.Exists(path))
+        if (_unlocked = (CheckRequirements() && File.Exists(path)))
         {
             byte[] fileData = File.ReadAllBytes(path);
             Texture2D texture = new Texture2D(2, 2);
@@ -58,6 +58,12 @@ public class JournalPhoto : MonoBehaviour
 
     bool CheckRequirements() //use this once we've replaced the bool array with a map, that can be more generic and also descriptive (ex: BodySeen, GuyConfessed, etc)
     {
-        return true;
+        bool met = true;
+        foreach (var req in Requirements)
+        {
+            met &= PlayerManager.Instance.CheckProgress(req);
+            if (!met) break;
+        }
+        return met;
     }
 }
