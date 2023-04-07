@@ -28,7 +28,8 @@ MonoBehaviour:
     Responses:
     - Line: Where were you last night?
       Next: 2
-      Requires: []
+      Requires:
+      - '!criminalLastNight'
     - Line: Empty holster?
       Next: 3
       Requires: []
@@ -47,7 +48,7 @@ MonoBehaviour:
       Next: -1
       Requires: []
     Unlocks:
-    - 
+    - criminalLastNight
   - Line: "\u201CYeah that\u2019s mine alright, though I couldn\u2019t tell you how
       it got there. It went  missing sometime last night. I can tell you it wasn\u2019t
       used to kill him though.  It\u2019s a thermal weapon. The officer won\u2019t

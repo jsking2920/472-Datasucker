@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a7393d88f114c4494927782692fb5f, type: 3}
   m_Name: custodianDialog
   m_EditorClassIdentifier: 
-  Starts: []
+  Starts:
+  - Index: 0
+    Conditions:
+    - custodianSeen
+  - Index: 0
+    Conditions:
+    - custodianSeen
   Lines:
   - Line: "\u201CHey, I suppose you\u2019re here about him.\u201D"
     Responses:
@@ -26,7 +32,7 @@ MonoBehaviour:
     - Line: Know anything about the victim?
       Next: 2
       Requires: []
-    - Line: I heard you two had an argument
+    - Line: I heard you and the victim had an argument
       Next: 3
       Requires:
       - KnowAboutArgument
@@ -36,6 +42,10 @@ MonoBehaviour:
     Responses:
     - Line: Where were you last night
       Next: 4
+      Requires:
+      - '!PoliceLocationKnown'
+    - Line: Leave
+      Next: -1
       Requires: []
     Unlocks:
     - 
@@ -49,6 +59,10 @@ MonoBehaviour:
     Responses:
     - Line: Where were you last night
       Next: 4
+      Requires:
+      - 
+    - Line: Leave
+      Next: -1
       Requires: []
     Unlocks: []
   - Line: "\u201CI went back to work after that. The same policeman was patrolling
@@ -58,5 +72,5 @@ MonoBehaviour:
       Next: -1
       Requires: []
     Unlocks:
-    - PoliceLocationKnown
+    - policeLocationKnown
   HasVoice: 0
