@@ -15,6 +15,18 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+public class AnchorObject 
+{
+    public WayspotAnchorPayload Payload;
+    public string Prefab;
+
+    public AnchorObject(WayspotAnchorPayload payload, string prefab)
+    {
+        Payload = payload;
+        Prefab = prefab;
+    }
+}
+
 namespace Niantic.ARDKExamples.WayspotAnchors
 {
     public class WayspotPlacementManager : MonoBehaviour
@@ -49,6 +61,9 @@ namespace Niantic.ARDKExamples.WayspotAnchors
         [SerializeField]
         private TextAsset _anchorJsonTextAsset;
 
+        [SerializeField]
+        private PrefabContainer _prefabContainer;
+
         private void Awake()
         {
             // This is necessary for setting the user id associated with the current user. 
@@ -79,6 +94,7 @@ namespace Niantic.ARDKExamples.WayspotAnchors
         {
             ARSessionFactory.SessionInitialized += HandleSessionInitialized;
             WayspotAnchorDataUtility.InitAnchorJson(_anchorJsonTextAsset);
+            _prefabContainer.Init();
         }
         private void OnDisable()
         {
@@ -134,12 +150,13 @@ namespace Niantic.ARDKExamples.WayspotAnchors
                 var saveableAnchors = wayspotAnchors.Where(a =>
                     a.Status == WayspotAnchorStatusCode.Limited || a.Status == WayspotAnchorStatusCode.Success);
                 var payloads = saveableAnchors.Select(a => a.Payload);
+                var prefabs = saveableAnchors.Select(a => _wayspotAnchorGameObjects[a.ID]);
 
-                WayspotAnchorDataUtility.SaveLocalPayloads(payloads.ToArray());
+                WayspotAnchorDataUtility.SaveLocalPayloads(payloads.ToArray(), prefabs.ToArray());
             }
             else
             {
-                WayspotAnchorDataUtility.SaveLocalPayloads(Array.Empty<WayspotAnchorPayload>());
+                WayspotAnchorDataUtility.SaveLocalPayloads(Array.Empty<WayspotAnchorPayload>(), Array.Empty<GameObject>());
             }
 
             _statusLog.text = $"Saved {_wayspotAnchorGameObjects.Count} Wayspot Anchors.";
@@ -153,19 +170,21 @@ namespace Niantic.ARDKExamples.WayspotAnchors
                 _statusLog.text = "Must localize before loading anchors.";
                 return;
             }
-
-            var payloads = WayspotAnchorDataUtility.LoadLocalPayloads();
-            if (payloads.Length > 0)
+            var wayspots = WayspotAnchorDataUtility.LoadLocalPayloads();
+            if (wayspots.Length > 0)
             {
-                foreach (var payload in payloads)
+                foreach (var wayspot in wayspots)
                 {
-                    var anchors = _wayspotAnchorService.RestoreWayspotAnchors(payload);
+                    var anchors = _wayspotAnchorService.RestoreWayspotAnchors(wayspot.Payload);
+                    var go = _prefabContainer.Prefabs[wayspot.Prefab];
+                    _statusLog.text = "0";
                     if (anchors.Length == 0)
                     {
+                        _statusLog.text = "0 length anchors list";
                         return; // error raised in CreateWayspotAnchors
                     }
 
-                    CreateWayspotAnchorGameObject(anchors[0], Vector3.zero, Quaternion.identity, false);
+                    CreateWayspotAnchorGameObject(anchors[0], Vector3.zero, Quaternion.identity, false, go);
                 }
                 
                 _statusLog.text = $"Loaded {_wayspotAnchorGameObjects.Count} anchors.";
@@ -281,11 +300,18 @@ namespace Niantic.ARDKExamples.WayspotAnchors
         }
 
         private GameObject CreateWayspotAnchorGameObject(IWayspotAnchor anchor, Vector3 position, Quaternion rotation,
-            bool startActive)
+            bool startActive, GameObject gameObject = null)
         {
             anchor.TransformUpdated += HandleWayspotAnchorTrackingUpdated;
             var id = anchor.ID;
-            var go = Instantiate(_anchorPrefab, position, rotation);
+            GameObject go;
+            if (gameObject != null) 
+            {
+                go = Instantiate(gameObject, position, rotation);
+            }
+            else {
+                go = Instantiate(_anchorPrefab, position, rotation);
+            }
 
             go.SetActive(startActive);
             _wayspotAnchorGameObjects.Add(id, go);

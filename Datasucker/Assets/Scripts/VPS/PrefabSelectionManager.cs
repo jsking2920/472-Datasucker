@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PrefabSelectionManager : MonoBehaviour
 {
-    public List<GameObject> Prefabs;
+    public PrefabContainer PrefabContainer;
 
     [SerializeField]
     private Text _displayText;
@@ -23,7 +23,7 @@ public class PrefabSelectionManager : MonoBehaviour
     public void Next()
     {
         _current += 1;
-        if (_current >= Prefabs.Count)
+        if (_current >= PrefabContainer.PrefabList.Count)
         {
             _current = 0;
         }
@@ -34,6 +34,6 @@ public class PrefabSelectionManager : MonoBehaviour
 
     public GameObject Current()
     {
-        return Prefabs[_current];
+        return PrefabContainer.PrefabList[_current];
     }
 }

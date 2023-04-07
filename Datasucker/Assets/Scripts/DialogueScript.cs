@@ -84,7 +84,14 @@ public class DialogueScript : ScriptableObject
                 bool conditionsMet = true;
                 foreach (var condition in response.Requires)
                 {
-                    conditionsMet &= PlayerManager.Instance.CheckProgress(condition);
+                    if (condition[0] == '!')
+                    {
+                        conditionsMet &= !PlayerManager.Instance.CheckProgress(condition.Substring(1));
+                    }
+                    else 
+                    {
+                        conditionsMet &= PlayerManager.Instance.CheckProgress(condition);
+                    }
                     if (!conditionsMet) break;
                 }
                 if (conditionsMet)

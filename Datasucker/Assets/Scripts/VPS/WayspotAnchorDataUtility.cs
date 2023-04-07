@@ -8,6 +8,12 @@ using Niantic.ARDK.AR.WayspotAnchors;
 
 using UnityEngine;
 
+public class AnchorsObjectData
+{
+    public List<string> Payloads;
+    public List<string> Prefabs;
+}
+
 namespace Niantic.ARDKExamples.WayspotAnchors
 {
     public static class WayspotAnchorDataUtility
@@ -20,11 +26,13 @@ namespace Niantic.ARDKExamples.WayspotAnchors
             _anchorJson = textAsset.text;
         }
 
-        public static void SaveLocalPayloads(WayspotAnchorPayload[] wayspotAnchorPayloads)
+        public static void SaveLocalPayloads(WayspotAnchorPayload[] wayspotAnchorPayloads, GameObject[] prefabs)
         {
-            var wayspotAnchorsData = new WayspotAnchorsData();
-            wayspotAnchorsData.Payloads = wayspotAnchorPayloads.Select(a => a.Serialize()).ToArray();
-            string wayspotAnchorsJson = JsonUtility.ToJson(wayspotAnchorsData);
+            AnchorsObjectData anchorsObjectData = new AnchorsObjectData();
+            anchorsObjectData.Payloads = wayspotAnchorPayloads.Select(a => a.Serialize()).ToList();
+            anchorsObjectData.Prefabs = prefabs.Select(a => a.name).ToList();
+
+            string wayspotAnchorsJson = JsonUtility.ToJson(anchorsObjectData);
 
             string path = Application.persistentDataPath;
             if (!Directory.Exists(path))
@@ -34,24 +42,14 @@ namespace Niantic.ARDKExamples.WayspotAnchors
             File.WriteAllText(Path.Combine(path, "anchors.json"), wayspotAnchorsJson);
         }
 
-        public static WayspotAnchorPayload[] LoadLocalPayloads()
+        public static AnchorObject[] LoadLocalPayloads()
         {
-            var payloads = new List<WayspotAnchorPayload>();
-            var wayspotAnchorsData = JsonUtility.FromJson<WayspotAnchorsData>(_anchorJson);
-            foreach (var wayspotAnchorPayload in wayspotAnchorsData.Payloads)
-            {
-                var payload = WayspotAnchorPayload.Deserialize(wayspotAnchorPayload);
-                payloads.Add(payload);
-            }
+            var anchorsObjectData = JsonUtility.FromJson<AnchorsObjectData>(_anchorJson);
 
-            return payloads.ToArray();
-        }
+            var anchors = anchorsObjectData.Payloads.Select(a => WayspotAnchorPayload.Deserialize(a));
+            var combined = anchors.Zip(anchorsObjectData.Prefabs, (a, b) => new AnchorObject(a, b));
 
-        [Serializable]
-        private class WayspotAnchorsData
-        {
-            /// The payloads to save via JsonUtility
-            public string[] Payloads = Array.Empty<string>();
+            return combined.ToArray();
         }
     }
 }
