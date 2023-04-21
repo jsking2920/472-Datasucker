@@ -29,7 +29,7 @@ public class PrefabSelectionManager : MonoBehaviour
         }
 
         manager.SetPrefab(Current());
-        _displayText.text = Current().name;
+        _displayText.text = Current().gameObject.name;
     }
 
     public GameObject Current()

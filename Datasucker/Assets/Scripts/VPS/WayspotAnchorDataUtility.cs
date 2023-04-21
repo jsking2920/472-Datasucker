@@ -12,6 +12,7 @@ public class AnchorsObjectData
 {
     public List<string> Payloads;
     public List<string> Prefabs;
+    public List<Transform> Transforms;
 }
 
 namespace Niantic.ARDKExamples.WayspotAnchors
@@ -31,6 +32,7 @@ namespace Niantic.ARDKExamples.WayspotAnchors
             AnchorsObjectData anchorsObjectData = new AnchorsObjectData();
             anchorsObjectData.Payloads = wayspotAnchorPayloads.Select(a => a.Serialize()).ToList();
             anchorsObjectData.Prefabs = prefabs.Select(a => a.name).ToList();
+            anchorsObjectData.Transforms = prefabs.Select(a => a.transform).ToList();
 
             string wayspotAnchorsJson = JsonUtility.ToJson(anchorsObjectData);
 
@@ -48,6 +50,7 @@ namespace Niantic.ARDKExamples.WayspotAnchors
 
             var anchors = anchorsObjectData.Payloads.Select(a => WayspotAnchorPayload.Deserialize(a));
             var combined = anchors.Zip(anchorsObjectData.Prefabs, (a, b) => new AnchorObject(a, b));
+            var transformed = combined.Zip(anchorsObjectData.Transforms, (a,b) => new AnchorObject(a.Payload, a.Prefab, b));
 
             return combined.ToArray();
         }

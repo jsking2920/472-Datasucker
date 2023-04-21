@@ -19,11 +19,14 @@ public class AnchorObject
 {
     public WayspotAnchorPayload Payload;
     public string Prefab;
+    public Transform Transform;
 
-    public AnchorObject(WayspotAnchorPayload payload, string prefab)
+    public AnchorObject(WayspotAnchorPayload payload, string prefab, Transform transform = null)
     {
         Payload = payload;
         Prefab = prefab;
+        if (transform != null)
+            Transform = transform;
     }
 }
 
@@ -66,6 +69,8 @@ namespace Niantic.ARDKExamples.WayspotAnchors
 
         [SerializeField]
         private bool CanPlace;
+
+        private GameObject _latest;
 
         private void Awake()
         {
@@ -179,7 +184,7 @@ namespace Niantic.ARDKExamples.WayspotAnchors
                 foreach (var wayspot in wayspots)
                 {
                     var anchors = _wayspotAnchorService.RestoreWayspotAnchors(wayspot.Payload);
-                    var go = _prefabContainer.Prefabs[wayspot.Prefab];
+                    var prefabObject = _prefabContainer.Prefabs[wayspot.Prefab];
                     _statusLog.text = "0";
                     if (anchors.Length == 0)
                     {
@@ -187,7 +192,7 @@ namespace Niantic.ARDKExamples.WayspotAnchors
                         return; // error raised in CreateWayspotAnchors
                     }
 
-                    CreateWayspotAnchorGameObject(anchors[0], Vector3.zero, Quaternion.identity, false, go);
+                    CreateWayspotAnchorGameObject(anchors[0], wayspot.Transform.position, wayspot.Transform.rotation, false, prefabObject);
                 }
                 
                 _statusLog.text = $"Loaded {_wayspotAnchorGameObjects.Count} anchors.";
@@ -314,11 +319,12 @@ namespace Niantic.ARDKExamples.WayspotAnchors
                 go = Instantiate(gameObject, position, rotation);
             }
             else {
-                go = Instantiate(_anchorPrefab, position, rotation);
+                go = Instantiate(_anchorPrefab.gameObject, position, rotation);
             }
 
             go.SetActive(startActive);
             _wayspotAnchorGameObjects.Add(id, go);
+            _latest = go;
 
             return go;
         }
@@ -382,6 +388,17 @@ namespace Niantic.ARDKExamples.WayspotAnchors
         public void SetConfig(IWayspotAnchorsConfiguration config) 
         {
             _config = config;
+        }
+
+        public void UpdatePrefabTransform(Transform delta) 
+        {
+            if (_latest == null)
+            {
+                return;
+            }
+
+            _latest.transform.position += transform.position;
+            _latest.transform.rotation *= transform.rotation;
         }
     }
 }
