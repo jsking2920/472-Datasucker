@@ -390,15 +390,24 @@ namespace Niantic.ARDKExamples.WayspotAnchors
             _config = config;
         }
 
-        public void UpdatePrefabTransform(Transform delta) 
+        public void UpdatePrefabRotation(Vector3 delta) 
         {
             if (_latest == null)
             {
                 return;
             }
 
-            _latest.transform.position += transform.position;
-            _latest.transform.rotation *= transform.rotation;
+            _latest.transform.eulerAngles += delta;
+        }
+
+        public void UpdatePrefabPosition(Vector3 delta) 
+        {
+            if (_latest == null)
+            {
+                return;
+            }
+
+            _latest.transform.position += delta;
         }
     }
 }
