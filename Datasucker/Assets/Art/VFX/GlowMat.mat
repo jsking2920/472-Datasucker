@@ -110,7 +110,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _PulseEnabled: 0
+    - _PulseEnabled: 1
     - _PulseSpeed: 2
     - _QueueControl: 0
     - _QueueOffset: 0
