@@ -409,5 +409,15 @@ namespace Niantic.ARDKExamples.WayspotAnchors
 
             _latest.transform.position += delta;
         }
+
+        public void UpdatePrefabScale(Vector3 delta)
+        {
+            if (_latest == null)
+            {
+                return;
+            }
+
+            _latest.transform.localScale += delta;
+        }
     }
 }

@@ -48,6 +48,15 @@ public class WayspotAnchorTransformer : MonoBehaviour
 
         Vector3 axes = GetDeltaAxes(axis, delta);
 
-        manager.UpdatePrefabRotation(axes);
+        manager.UpdatePrefabPosition(axes);
+    }
+
+    public void UpdateScale(bool positive)
+    {
+        float delta = positive ? 0.1f : 0.1f;
+
+        Vector3 axes = new Vector3(delta, delta, delta);
+
+        manager.UpdatePrefabScale(axes);
     }
 }
