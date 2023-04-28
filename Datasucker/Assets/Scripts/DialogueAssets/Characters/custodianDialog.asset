@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a7393d88f114c4494927782692fb5f, type: 3}
+  m_Name: custodianDialog
+  m_EditorClassIdentifier: 
+  Starts:
+  - Index: 0
+    Conditions:
+    - custodianSeen
+  - Index: 0
+    Conditions:
+    - custodianSeen
+  Lines:
+  - Line: "\u201CHey, I suppose you\u2019re here about him.\u201D"
+    Responses:
+    - Line: Nod...
+      Next: 1
+      Requires: []
+    Unlocks:
+    - gasSeen
+  - Line: "\u201CI\u2019m a custodian here, although I suppose I\u2019ve been roped
+      into his mess.\u201D "
+    Responses:
+    - Line: Know anything about the victim?
+      Next: 2
+      Requires: []
+    - Line: I heard you and the victim had an argument
+      Next: 3
+      Requires:
+      - KnowAboutArgument
+    Unlocks: []
+  - Line: "\u201CWe are just coworkers. Nothing special about that. He is not the
+      nicest   person I\u2019ve met, but we get along just fine.\u201D "
+    Responses:
+    - Line: Where were you last night
+      Next: 4
+      Requires:
+      - '!PoliceLocationKnown'
+    - Line: Leave
+      Next: -1
+      Requires: []
+    Unlocks:
+    - 
+  - Line: "\u201COh\u2026 I wouldn\u2019t call it an argument. Last night, he was
+      gonna show me some  secret about the police officer outside. Why wouldn\u2019t
+      I wanna see that?  Anyways, he thought it would be a good idea to hold onto
+      that information in  secret, as if that was going to do anything for him. All
+      I said was that he would  be better off using it now. It doesn\u2019t matter
+      anyways, he never told me what it  was, and it doesn\u2019t seem like he\u2019ll
+      be telling anyone else.\u201D "
+    Responses:
+    - Line: Where were you last night
+      Next: 4
+      Requires:
+      - 
+    - Line: Leave
+      Next: -1
+      Requires: []
+    Unlocks: []
+  - Line: "\u201CI went back to work after that. The same policeman was patrolling
+      here too\""
+    Responses:
+    - Line: '"Noted"'
+      Next: -1
+      Requires: []
+    Unlocks:
+    - policeLocationKnown
+  HasVoice: 0
