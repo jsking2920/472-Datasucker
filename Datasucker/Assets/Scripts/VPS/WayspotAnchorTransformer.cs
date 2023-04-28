@@ -35,7 +35,7 @@ public class WayspotAnchorTransformer : MonoBehaviour
 
     public void UpdateRotation(int axis)
     {
-        float delta = 0.1f;
+        float delta = 5f;
 
         Vector3 axes = GetDeltaAxes(axis, delta);
 
@@ -44,10 +44,10 @@ public class WayspotAnchorTransformer : MonoBehaviour
 
     public void UpdatePosition(int axis)
     {
-        float delta = 0.1f;
+        float delta = 0.05f;
 
         Vector3 axes = GetDeltaAxes(axis, delta);
 
-        manager.UpdatePrefabRotation(axes);
+        manager.UpdatePrefabPosition(axes);
     }
 }
