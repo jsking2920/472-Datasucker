@@ -44,4 +44,9 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("Credits");
     }
 
+    public void btn_Editor()
+    {
+        SceneManager.LoadScene("LevelEditor");
+    }
+
 }
