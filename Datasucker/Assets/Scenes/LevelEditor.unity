@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -731,6 +731,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UpdatePosition
       objectReference: {fileID: 0}
+    - target: {fileID: 1064548883485045556, guid: a8b541b4d70a7f3488c47a0295cd8e63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064548883485045556, guid: a8b541b4d70a7f3488c47a0295cd8e63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 97769334}
+    - target: {fileID: 1064548883485045556, guid: a8b541b4d70a7f3488c47a0295cd8e63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateScale
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064548883485045556, guid: a8b541b4d70a7f3488c47a0295cd8e63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1691696205027599042, guid: a8b541b4d70a7f3488c47a0295cd8e63,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -740,6 +760,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UpdateRotation
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030244340185925642, guid: a8b541b4d70a7f3488c47a0295cd8e63,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 100.5
       objectReference: {fileID: 0}
     - target: {fileID: 2126323306236810672, guid: a8b541b4d70a7f3488c47a0295cd8e63,
         type: 3}
@@ -901,6 +926,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UpdateRotation
       objectReference: {fileID: 0}
+    - target: {fileID: 6245435438320911063, guid: a8b541b4d70a7f3488c47a0295cd8e63,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 81.323
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245435438320911063, guid: a8b541b4d70a7f3488c47a0295cd8e63,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -80.818
+      objectReference: {fileID: 0}
     - target: {fileID: 6835834642867627287, guid: a8b541b4d70a7f3488c47a0295cd8e63,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -940,6 +975,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -83.43506
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744941069748141929, guid: a8b541b4d70a7f3488c47a0295cd8e63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744941069748141929, guid: a8b541b4d70a7f3488c47a0295cd8e63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 97769334}
+    - target: {fileID: 7744941069748141929, guid: a8b541b4d70a7f3488c47a0295cd8e63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateScale
       objectReference: {fileID: 0}
     - target: {fileID: 8431777649142318137, guid: a8b541b4d70a7f3488c47a0295cd8e63,
         type: 3}

@@ -192,7 +192,7 @@ namespace Niantic.ARDKExamples.WayspotAnchors
                         return; // error raised in CreateWayspotAnchors
                     }
 
-                    CreateWayspotAnchorGameObject(anchors[0], wayspot.Transform.position, wayspot.Transform.rotation, false, prefabObject);
+                    CreateWayspotAnchorGameObject(anchors[0], wayspot.Transform.position, wayspot.Transform.rotation, wayspot.Transform.localScale, false, prefabObject);
                 }
                 
                 _statusLog.text = $"Loaded {_wayspotAnchorGameObjects.Count} anchors.";
@@ -303,13 +303,14 @@ namespace Niantic.ARDKExamples.WayspotAnchors
 
             var position = localPose.ToPosition();
             var rotation = localPose.ToRotation();
-            CreateWayspotAnchorGameObject(anchors[0], position, rotation, true);
+            var scale = Vector3.one;
+            CreateWayspotAnchorGameObject(anchors[0], position, rotation, scale, true);
 
             _statusLog.text = "Anchor placed.";
         }
 
         private GameObject CreateWayspotAnchorGameObject(IWayspotAnchor anchor, Vector3 position, Quaternion rotation,
-            bool startActive, GameObject gameObject = null)
+            Vector3 scale, bool startActive, GameObject gameObject = null)
         {
             anchor.TransformUpdated += HandleWayspotAnchorTrackingUpdated;
             var id = anchor.ID;
@@ -317,9 +318,11 @@ namespace Niantic.ARDKExamples.WayspotAnchors
             if (gameObject != null) 
             {
                 go = Instantiate(gameObject, position, rotation);
+                go.transform.localScale = scale;
             }
             else {
                 go = Instantiate(_anchorPrefab.gameObject, position, rotation);
+                go.transform.localScale = scale;
             }
 
             go.SetActive(startActive);
