@@ -26,7 +26,7 @@ public class LevelManager : MonoBehaviour
     public void btn_StartTheGame()
     {
         Debug.Log("StartPushed");
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("Main");
     }
 
     public void btn_BackToMain()
