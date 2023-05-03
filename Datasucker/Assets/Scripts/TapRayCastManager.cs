@@ -27,7 +27,7 @@ public class TapRayCastManager : MonoBehaviour
     void OnTapScreen(Touch touch)
     {
         // If journal is up or dialogue is up just return
-        if (PlayerManager.Instance.HasJournalOpen || PlayerManager.Instance.IsTalking)
+        if (PlayerManager.Instance.HasJournalOpen || PlayerManager.Instance.IsTalking || PlayerManager.Instance.HasPopupOpen)
         {
             return;
         }

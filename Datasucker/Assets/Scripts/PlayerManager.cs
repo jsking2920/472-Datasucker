@@ -50,6 +50,7 @@ public class PlayerManager : MonoBehaviour
 
     public bool HasJournalOpen = false;
     public bool IsTalking = false;
+    public bool HasPopupOpen = false;
 
 
 
