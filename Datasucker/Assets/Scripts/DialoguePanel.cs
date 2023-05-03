@@ -14,6 +14,7 @@ public class DialoguePanel : MonoBehaviour
     private AudioSource voiceBox;
     public float volume = 0.7f;
     [SerializeField] private AudioClip[] voices;
+    [SerializeField] private AccuseToggle accuseToggle;
 
     public void Initialize(DialogueScript dialogueScript)
     {
@@ -40,6 +41,7 @@ public class DialoguePanel : MonoBehaviour
         else   
         {
             gameObject.SetActive(false);
+            accuseToggle.Check();
         }
     }
 
