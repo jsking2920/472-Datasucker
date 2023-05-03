@@ -82,7 +82,7 @@ public class DialoguePanel : MonoBehaviour
 
         if (speaker != null && animFlag != "")
         {
-            //speaker.GetComponent<Animator>()?. set param here with animflag
+            speaker.GetComponent<Animator>()?.SetTrigger(animFlag);
         }
     }
 
