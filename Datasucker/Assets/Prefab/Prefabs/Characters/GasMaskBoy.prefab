@@ -1297,13 +1297,21 @@ Animator:
   m_GameObject: {fileID: 8783316528950927829}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: d4ca471e22e3e45e8b89e771b09f4d59, type: 3}
-  m_Controller: {fileID: 9100000, guid: 775bc2daa3bb24cc8a1994e8c673621f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 069f43f75173c4492a165944d4b56790, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
+    'mixamorig:LeftHandIndex1'\n\tTransform 'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform
+    'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform 'mixamorig:LeftShoulder'\n\tTransform
+    'mixamorig:RightHandIndex3'\n\tTransform 'mixamorig:RightFoot'\n\tand more ...\n\tFrom
+    animation clip 'Talking 1'\n\tFrom animation clip 'Talking-2'\n\tFrom animation
+    clip 'Talking'\n\tFrom animation clip 'Walking'\n\tFrom animation clip 'Yelling'\n\tFrom
+    animation clip 'Jump'\n\tFrom animation clip 'Hell Slammer B'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -1324,6 +1332,7 @@ MonoBehaviour:
   _audioSource: {fileID: 2425266236017225629}
   _onTapClip: {fileID: 8300000, guid: d1499df673e58dd49893d2f0a75343ee, type: 3}
   ADialogueScript: {fileID: 11400000, guid: 8b8f3f2230fbca54197ca6d32ac30ce0, type: 2}
+  Accusable: 0
 --- !u!82 &2425266236017225629
 AudioSource:
   m_ObjectHideFlags: 0

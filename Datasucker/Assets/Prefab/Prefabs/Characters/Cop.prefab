@@ -269,14 +269,25 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2090809710357204019}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 2685b9b2a38214ad5831ef8ec4f6476c, type: 3}
-  m_Controller: {fileID: 9100000, guid: aed5aa79d993c4b2191489b83360a005, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 15876d39a4e89d54381576f8c48a5b26, type: 2}
+  m_Controller: {fileID: 9100000, guid: c02c2605e8a364c1e8ab0cdd9d8fed8c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
+    'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
+    'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform 'mixamorig:LeftHandThumb3'\n\tTransform
+    'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform 'mixamorig:LeftHandMiddle3'\n\tand
+    more ...\n\tFrom animation clip 'Neutral Idle'\n\tFrom animation clip 'Entry'\n\tFrom
+    animation clip 'Standing Arguing'\n\tFrom animation clip 'Talking'\n\tFrom animation
+    clip 'Telling A Secret'\n\tFrom animation clip 'Yelling'\n\tFrom animation clip
+    'Sword And Shield Walk'\n\tFrom animation clip 'Standing Melee Run Jump Attack'\n\tFrom
+    animation clip 'Chapa Giratoria 2'\n\tFrom animation clip 'Brutal To Happy Walking'\n\tand
+    more ..."
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -297,6 +308,7 @@ MonoBehaviour:
   _audioSource: {fileID: 8801825167460346746}
   _onTapClip: {fileID: 8300000, guid: d1499df673e58dd49893d2f0a75343ee, type: 3}
   ADialogueScript: {fileID: 11400000, guid: 4cafb2b09cd4950498f51efa512e1713, type: 2}
+  Accusable: 0
 --- !u!136 &2146913225937053624
 CapsuleCollider:
   m_ObjectHideFlags: 0
