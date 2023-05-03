@@ -7,6 +7,7 @@ public class DialogueComponent : InteractableComponent
 
     private DialoguePanel _dialoguePanel;
     public DialogueScript ADialogueScript;
+    public bool Accusable;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,10 @@ public class DialogueComponent : InteractableComponent
 
     public override void OnObjectTapped()
     {
+        if (Accusable && PlayerManager.Instance.IsAccusing) {
+            PlayerManager.Instance.Accuse(gameObject);
+            return;
+        }
         base.OnObjectTapped();
 
         _dialoguePanel.gameObject.SetActive(true);

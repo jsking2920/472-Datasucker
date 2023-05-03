@@ -321,6 +321,7 @@ MonoBehaviour:
   HasJournalOpen: 0
   IsTalking: 0
   HasPopupOpen: 0
+  IsAccusing: 0
   _startProgress: []
 --- !u!4 &406846314
 Transform:
@@ -2352,6 +2353,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_Alignment
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 271100704633274146, guid: 5d7be9c440193704d99f3b57149576c6,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 271100704633274146, guid: 5d7be9c440193704d99f3b57149576c6,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 271100704633274146, guid: 5d7be9c440193704d99f3b57149576c6,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 406846313}
+    - target: {fileID: 271100704633274146, guid: 5d7be9c440193704d99f3b57149576c6,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 271100704633274146, guid: 5d7be9c440193704d99f3b57149576c6,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetAccusing
+      objectReference: {fileID: 0}
+    - target: {fileID: 271100704633274146, guid: 5d7be9c440193704d99f3b57149576c6,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 271100704633274146, guid: 5d7be9c440193704d99f3b57149576c6,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1489628182504637946, guid: 5d7be9c440193704d99f3b57149576c6,
         type: 3}

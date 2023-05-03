@@ -42,6 +42,10 @@ public class InteractableComponent : MonoBehaviour
 
     public virtual void OnObjectTapped()
     {
+        if (PlayerManager.Instance.IsAccusing)
+        {
+            return;
+        }
         Debug.Log(name + " tapped.");
         if (_audioSource && _onTapClip)
         {

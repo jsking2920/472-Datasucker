@@ -52,6 +52,8 @@ public class PlayerManager : MonoBehaviour
     public bool IsTalking = false;
     public bool HasPopupOpen = false;
 
+    public bool IsAccusing = false;
+
 
 
     // Serialized tuple list to construct dictionary on start
@@ -67,5 +69,15 @@ public class PlayerManager : MonoBehaviour
 
     public bool CheckProgress(string condition) {
         return Progress.ContainsKey(condition) && Progress[condition];
+    }
+
+    public void Accuse(GameObject gameObject) {
+        IsTalking = true;
+
+    }
+
+    public void SetAccusing(bool isAccusing)
+    {
+        IsAccusing = isAccusing;
     }
 }
