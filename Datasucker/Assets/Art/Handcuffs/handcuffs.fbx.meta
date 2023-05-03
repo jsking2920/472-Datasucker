@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 65698b673ffcb2f47aebe837de843884
+guid: 4191bce3e20574e6d8b64b81df6b8a6f
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -16,7 +16,8 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 1
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'Hips' not found\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -24,7 +25,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -53,8 +54,8 @@ ModelImporter:
     weldVertices: 1
     bakeAxisConversion: 0
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
+    skinWeightsMode: 1
+    maxBonesPerVertex: 19
     minBoneWeight: 0.001
     optimizeBones: 1
     meshOptimizationFlags: -1
@@ -75,12 +76,35 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
+  referencedClips:
+  - e36752a1843d5458e9fcab29e5dae22b
+  - 4a9d74b4486a14c299db832593567e7d
+  - 46cdb24822a344abdb28ee56f3614d0a
+  - c1dafa052719e429ebd37f42929f3595
+  - 904774afeb7414aa3ae7a9679e8bfd86
+  - 9d46f8f2077254422bd2b9f5dc17e361
+  - 7b84ed153624d47ae96344c457c35ef2
+  - 7e1ebed8b0beb4415b0061cd764e730f
+  - 48bf09a0d2beb4420a03b9ca2e698bf4
+  - 661956ab9be8746dd8849bc0ff522642
+  - 0b5bee58d0771432497773db60c9a599
+  - 1fbc3de5b6cca41099b3f21ea69768cb
+  - 7129ba6d9b88d4bc6ac1f71cad37777f
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: Police FINISHED(Clone)
+      parentName: 
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Luigi_hat1
+      parentName: Police FINISHED(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -95,9 +119,9 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
