@@ -19,6 +19,7 @@ public class DialogueLine
     public string Line;
     public List<Response> Responses;
     public List<String> Unlocks; // Progress conditions unlocked when read
+    public string AnimFlag;
 }
 
 [System.Serializable]
@@ -63,7 +64,7 @@ public class DialogueScript : ScriptableObject
         return Starts[Starts.Count - 1].Index; // Last item should have no condition anyway but yk. Possibly return -1 here instead and prevent talking if no options.
     }
 
-    public List<string> Read()
+    public List<string> Read(out string flagRef)
     {
         Debug.Log(_currentLineIndex);
         DialogueLine currentDialogueLine = Lines[_currentLineIndex];
@@ -108,6 +109,7 @@ public class DialogueScript : ScriptableObject
             }
         }
 
+        flagRef = currentDialogueLine.AnimFlag;
         return outLines;
     }
 

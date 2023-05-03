@@ -10,6 +10,8 @@ public class DialoguePanel : MonoBehaviour
     public TextMeshProUGUI TextObject;
     public GameObject ResponsePanel;
     private DialogueScript _dialogue;
+
+    private GameObject speaker;
     
     private AudioSource voiceBox;
     public float volume = 0.7f;
@@ -47,7 +49,8 @@ public class DialoguePanel : MonoBehaviour
 
     public void ShowDialogue()
     {
-        List<string> panelText = _dialogue.Read();
+        string animFlag;
+        List<string> panelText = _dialogue.Read(out animFlag);
         TextObject.text = panelText[0];
         if (panelText.Count < 2) // Special case if no responses provided (should write ok manually but if we forget this covers us)
         {
@@ -75,6 +78,11 @@ public class DialoguePanel : MonoBehaviour
         if (_dialogue.HasVoice)
         {
             PlayVoice();
+        }
+
+        if (speaker != null && animFlag != "")
+        {
+            //speaker.GetComponent<Animator>()?. set param here with animflag
         }
     }
 
