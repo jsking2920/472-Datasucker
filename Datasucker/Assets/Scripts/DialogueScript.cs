@@ -32,6 +32,7 @@ public class StartOption
 [CreateAssetMenu(fileName = "Dialogue", menuName = "ScriptableObjects/Dialogue", order = 1)]
 public class DialogueScript : ScriptableObject
 {
+    public Sprite ProfileSprite;
     public List<StartOption> Starts;
     public List<DialogueLine> Lines;
 

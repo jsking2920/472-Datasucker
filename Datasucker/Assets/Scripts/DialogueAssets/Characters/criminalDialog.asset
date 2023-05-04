@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a7393d88f114c4494927782692fb5f, type: 3}
   m_Name: criminalDialog
   m_EditorClassIdentifier: 
+  ProfileSprite: {fileID: 21300000, guid: 440b11b7cdf2c90438d87cc4c913a245, type: 3}
   Starts:
   - Index: 5
     Conditions:
@@ -30,6 +31,7 @@ MonoBehaviour:
       Requires: []
     Unlocks:
     - criminalSeen
+    AnimFlag: 
   - Line: "\u201CI don\u2019t know anything about him, he\u2019s just some mall employee.\""
     Responses:
     - Line: Where were you last night?
@@ -45,6 +47,7 @@ MonoBehaviour:
       Requires: []
     Unlocks:
     - criminalDoesntKnowVictim
+    AnimFlag: 
   - Line: "\u201CI was here in the evening, but I left at night. I did overhear the
       victim and  that custodian over there having a very heated\u2026 discussion,
       before I left. \""
@@ -58,6 +61,7 @@ MonoBehaviour:
       Requires: []
     Unlocks:
     - criminalLastNight
+    AnimFlag: 
   - Line: "\u201CYeah that\u2019s mine alright, though I couldn\u2019t tell you how
       it got there. It went  missing sometime last night. I can tell you it wasn\u2019t
       used to kill him though.  It\u2019s a thermal weapon. The officer won\u2019t
@@ -69,6 +73,7 @@ MonoBehaviour:
       Requires: []
     Unlocks:
     - criminalGun
+    AnimFlag: 
   - Line: "\u201CI couldn\u2019t hear the details, but they were really shouting
       at each other,  something about something \u201Cbeing too risky\u201D, and
       \u201Cwasted opportunities\u201D.  The officer came up a couple times too.
@@ -79,6 +84,7 @@ MonoBehaviour:
       Requires: []
     Unlocks:
     - KnowAboutArgument
+    AnimFlag: 
   - Line: '"What else do you want from me?"'
     Responses:
     - Line: Leave
@@ -101,4 +107,5 @@ MonoBehaviour:
       Requires:
       - '!KnowAboutArgument'
     Unlocks: []
+    AnimFlag: 
   HasVoice: 0

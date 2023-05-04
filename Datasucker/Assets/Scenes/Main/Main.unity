@@ -2953,6 +2953,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1489628183474243587, guid: 5d7be9c440193704d99f3b57149576c6,
         type: 3}
+      propertyPath: profile
+      value: 
+      objectReference: {fileID: 1047962861}
+    - target: {fileID: 1489628183474243587, guid: 5d7be9c440193704d99f3b57149576c6,
+        type: 3}
       propertyPath: accuseToggle
       value: 
       objectReference: {fileID: 1489628183474243593}

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net.Mime;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialoguePanel : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class DialoguePanel : MonoBehaviour
     public float volume = 0.7f;
     [SerializeField] private AudioClip[] voices;
     [SerializeField] private AccuseToggle accuseToggle;
+    [SerializeField] private Image profileImage;
 
     public void Initialize(DialogueScript dialogueScript)
     {
@@ -49,6 +51,16 @@ public class DialoguePanel : MonoBehaviour
 
     public void ShowDialogue()
     {
+        Sprite profileSprite = _dialogue.ProfileSprite;
+        if (profileSprite == null)
+        {
+            profileImage.gameObject.SetActive(false);
+        }
+        else
+        {
+            profileImage.gameObject.SetActive(true);
+            profileImage.sprite = profileSprite;
+        }
         string animFlag;
         List<string> panelText = _dialogue.Read(out animFlag);
         TextObject.text = panelText[0];
