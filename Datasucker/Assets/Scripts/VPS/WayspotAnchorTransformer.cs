@@ -35,7 +35,7 @@ public class WayspotAnchorTransformer : MonoBehaviour
 
     public void UpdateRotation(int axis)
     {
-        float delta = 0.1f;
+        float delta = 1.0f;
 
         Vector3 axes = GetDeltaAxes(axis, delta);
 
