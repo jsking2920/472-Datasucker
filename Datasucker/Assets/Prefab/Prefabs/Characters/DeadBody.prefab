@@ -413,8 +413,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1955418, y: 0.38511026, z: 0.10913758}
-  m_Center: {x: 0.00096958026, y: 0.30744597, z: 0.0039070207}
+  m_Size: {x: 1.71, y: 0.51, z: 0.81}
+  m_Center: {x: 0.00096958026, y: 0.19, z: 0.0039070207}
 --- !u!82 &6836597542941906207
 AudioSource:
   m_ObjectHideFlags: 0
@@ -528,3 +528,4 @@ MonoBehaviour:
   _audioSource: {fileID: 6836597542941906207}
   _onTapClip: {fileID: 8300000, guid: d1499df673e58dd49893d2f0a75343ee, type: 3}
   ADialogueScript: {fileID: 11400000, guid: f75611446b6ecb043bb016def93c8c35, type: 2}
+  Accusable: 0
