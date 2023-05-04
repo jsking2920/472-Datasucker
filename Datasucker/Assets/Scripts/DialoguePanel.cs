@@ -54,11 +54,11 @@ public class DialoguePanel : MonoBehaviour
         TextObject.text = panelText[0];
         if (panelText.Count < 2) // Special case if no responses provided (should write ok manually but if we forget this covers us)
         {
-            ResponsePanel.transform.GetChild(0).GetComponentInChildren<TextMeshProUGUI>().text = "Ok";
+            GetChildButton(0).GetComponentInChildren<TextMeshProUGUI>().text = "Ok";
             // Hide buttons besides first one
             for (int i = 1; i < ResponsePanel.transform.childCount; i++)
             {
-                ResponsePanel.transform.GetChild(i).gameObject.SetActive(false);
+                GetChildButton(i).gameObject.SetActive(false);
             }
         }
         else 
@@ -66,11 +66,11 @@ public class DialoguePanel : MonoBehaviour
             for (int i = 0; i < ResponsePanel.transform.childCount; i++)
             {
                 bool buttonShouldShow = i < panelText.Count - 1  && !panelText[i+1].Equals(""); //xiao changed this thing
-                Transform childButton = ResponsePanel.transform.GetChild(i);
+                Transform childButton = GetChildButton(i);
                 childButton.gameObject.SetActive(buttonShouldShow);
                 if (buttonShouldShow)
                 {
-                    ResponsePanel.transform.GetChild(i).GetComponentInChildren<TextMeshProUGUI>().text = panelText[i+1];
+                    GetChildButton(i).GetComponentInChildren<TextMeshProUGUI>().text = panelText[i+1];
                 }
             }
         }
@@ -91,5 +91,17 @@ public class DialoguePanel : MonoBehaviour
         int voice = Random.Range(0,4);
         voiceBox?.PlayOneShot(voices[voice], volume);
         Debug.Log(voice);
+    }
+
+    private Transform GetChildButton(int index)
+    {
+        if (index < 2)
+        {
+            return ResponsePanel.transform.GetChild(0).GetChild(index);
+        }
+        else
+        {
+            return ResponsePanel.transform.GetChild(1).GetChild(index - 2);
+        }
     }
 }

@@ -1155,6 +1155,11 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 58fe3f6a71f4b0a4f8fe7a9f46a69bf2, type: 3}
     - target: {fileID: 2405800495575834940, guid: 2f5f91588e42f6e42a7dc74d754c468f,
         type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2405800495575834940, guid: 2f5f91588e42f6e42a7dc74d754c468f,
+        type: 3}
       propertyPath: m_fontSizeMax
       value: 50
       objectReference: {fileID: 0}
@@ -1162,6 +1167,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DialoguePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140912761398913539, guid: 2f5f91588e42f6e42a7dc74d754c468f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980841962283009183, guid: 2f5f91588e42f6e42a7dc74d754c468f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1938356852, guid: 4226553d3e7b676488adae955bbfb984,
+        type: 3}
+    - target: {fileID: 7980841962283009183, guid: 2f5f91588e42f6e42a7dc74d754c468f,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8904253929257926761, guid: 2f5f91588e42f6e42a7dc74d754c468f,
         type: 3}
