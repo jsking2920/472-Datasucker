@@ -12,7 +12,9 @@ public class AnchorsObjectData
 {
     public List<string> Payloads;
     public List<string> Prefabs;
-    public List<Transform> Transforms;
+    public List<Vector3> Positions;
+    public List<Quaternion> Rotations;
+    public List<Vector3> Scales;
 }
 
 namespace Niantic.ARDKExamples.WayspotAnchors
@@ -32,7 +34,9 @@ namespace Niantic.ARDKExamples.WayspotAnchors
             AnchorsObjectData anchorsObjectData = new AnchorsObjectData();
             anchorsObjectData.Payloads = wayspotAnchorPayloads.Select(a => a.Serialize()).ToList();
             anchorsObjectData.Prefabs = prefabs.Select(a => a.name).ToList();
-            anchorsObjectData.Transforms = prefabs.Select(a => a.transform).ToList();
+            anchorsObjectData.Positions = prefabs.Select(a => a.transform.position).ToList();
+            anchorsObjectData.Rotations = prefabs.Select(a => a.transform.rotation).ToList();
+            anchorsObjectData.Scales = prefabs.Select(a => a.transform.localScale).ToList();
 
             string wayspotAnchorsJson = JsonUtility.ToJson(anchorsObjectData);
 
@@ -47,12 +51,14 @@ namespace Niantic.ARDKExamples.WayspotAnchors
         public static AnchorObject[] LoadLocalPayloads()
         {
             var anchorsObjectData = JsonUtility.FromJson<AnchorsObjectData>(_anchorJson);
+            List<AnchorObject> loaded = new List<AnchorObject>();
 
-            var anchors = anchorsObjectData.Payloads.Select(a => WayspotAnchorPayload.Deserialize(a));
-            var combined = anchors.Zip(anchorsObjectData.Prefabs, (a, b) => new AnchorObject(a, b));
-            var transformed = combined.Zip(anchorsObjectData.Transforms, (a,b) => new AnchorObject(a.Payload, a.Prefab, b));
+            for (int i = 0; i < anchorsObjectData.Payloads.Count; i++)
+            {
+                loaded.Add(new AnchorObject(WayspotAnchorPayload.Deserialize(anchorsObjectData.Payloads[i]), anchorsObjectData.Prefabs[i], anchorsObjectData.Positions[i], anchorsObjectData.Rotations[i], anchorsObjectData.Scales[i]));
+            }
 
-            return combined.ToArray();
+            return loaded.ToArray();
         }
     }
 }

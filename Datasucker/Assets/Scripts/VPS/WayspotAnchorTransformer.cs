@@ -53,7 +53,7 @@ public class WayspotAnchorTransformer : MonoBehaviour
 
     public void UpdateScale(bool positive)
     {
-        float delta = positive ? 0.1f : 0.1f;
+        float delta = positive ? 0.1f : -0.1f;
 
         Vector3 axes = new Vector3(delta, delta, delta);
 

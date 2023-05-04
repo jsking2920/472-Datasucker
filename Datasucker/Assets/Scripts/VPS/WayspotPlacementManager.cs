@@ -19,14 +19,17 @@ public class AnchorObject
 {
     public WayspotAnchorPayload Payload;
     public string Prefab;
-    public Transform Transform;
+    public Vector3 Position;
+    public Quaternion Rotation;
+    public Vector3 Scale;
 
-    public AnchorObject(WayspotAnchorPayload payload, string prefab, Transform transform = null)
+    public AnchorObject(WayspotAnchorPayload payload, string prefab, Vector3 position, Quaternion rotation, Vector3 scale)
     {
         Payload = payload;
         Prefab = prefab;
-        if (transform != null)
-            Transform = transform;
+        Position = position;
+        Rotation = rotation;
+        Scale = scale;
     }
 }
 
@@ -192,7 +195,7 @@ namespace Niantic.ARDKExamples.WayspotAnchors
                         return; // error raised in CreateWayspotAnchors
                     }
 
-                    CreateWayspotAnchorGameObject(anchors[0], wayspot.Transform.position, wayspot.Transform.rotation, wayspot.Transform.localScale, false, prefabObject);
+                    CreateWayspotAnchorGameObject(anchors[0], wayspot.Position, wayspot.Rotation, wayspot.Scale, false, prefabObject);
                 }
                 
                 _statusLog.text = $"Loaded {_wayspotAnchorGameObjects.Count} anchors.";
