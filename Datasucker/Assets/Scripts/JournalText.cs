@@ -23,7 +23,7 @@ public class JournalText : ScriptableObject
         {
             if(Check(line))
             {
-                outString += "-" + line + "\n";
+                outString += "-" + line.Line + "\n";
             }
         }
 
