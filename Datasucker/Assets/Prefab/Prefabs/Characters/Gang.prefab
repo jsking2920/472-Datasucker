@@ -106,6 +106,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: f8b1ace7f43b34a5bbea1c3c402c4fac,
         type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: b06db1964d4e747f5b8211e0f90d8c20, type: 3}
+    - target: {fileID: 5866666021909216657, guid: f8b1ace7f43b34a5bbea1c3c402c4fac,
+        type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 633b75327bc5d4af2a073a4192e38120, type: 2}
@@ -131,24 +136,6 @@ CapsuleCollider:
   m_Height: 70
   m_Direction: 1
   m_Center: {x: -52.4, y: 30.27, z: 0}
---- !u!114 &461022147450342507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 97844277865714244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11adae25aa9696f4b8f496fab604a34a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InteractionRange: 6
-  PhotoDiscoverable: 1
-  _audioSource: {fileID: 333783529824071566}
-  _onTapClip: {fileID: 8300000, guid: d1499df673e58dd49893d2f0a75343ee, type: 3}
-  ADialogueScript: {fileID: 11400000, guid: 4b256e8c1f41cd74ba98ecf400611f3b, type: 2}
-  Accusable: 1
 --- !u!82 &333783529824071566
 AudioSource:
   m_ObjectHideFlags: 0
@@ -245,6 +232,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &461022147450342507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97844277865714244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11adae25aa9696f4b8f496fab604a34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractionRange: 6
+  PhotoDiscoverable: 1
+  _audioSource: {fileID: 333783529824071566}
+  _onTapClip: {fileID: 8300000, guid: d1499df673e58dd49893d2f0a75343ee, type: 3}
+  ADialogueScript: {fileID: 11400000, guid: 4b256e8c1f41cd74ba98ecf400611f3b, type: 2}
+  Accusable: 1
 --- !u!4 &725163612578892030 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f8b1ace7f43b34a5bbea1c3c402c4fac,
