@@ -84,7 +84,7 @@ namespace Niantic.ARDKExamples.WayspotAnchors
 
         public Image ConnectionTip;
         public Image ConnectedTip;
-        private bool FirstTime;
+        private bool FirstTime = true;
 
         private void Awake()
         {
@@ -162,7 +162,7 @@ namespace Niantic.ARDKExamples.WayspotAnchors
                     FirstTime = false;
                     ConnectionTip.gameObject.SetActive(false);
                     ConnectedTip.gameObject.SetActive(true);
-                    StartCoroutine(ClearConnectionTip());
+                    StartCoroutine(ClearConnectedTip());
                     
                 }
                 _localizedReady = true;
@@ -173,10 +173,10 @@ namespace Niantic.ARDKExamples.WayspotAnchors
             DisconnectionIcon.gameObject.SetActive(_localizationState != LocalizationState.Localized);
         }
 
-        private IEnumerator ClearConnectionTip()
+        private IEnumerator ClearConnectedTip()
         {
             yield return new WaitForSeconds(3);
-            ConnectionTip.gameObject.SetActive(false);
+            ConnectedTip.gameObject.SetActive(false);
         }
 
         /// Saves all of the existing wayspot anchors
