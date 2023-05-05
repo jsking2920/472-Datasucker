@@ -11,6 +11,8 @@ public class AccuseToggle : MonoBehaviour
     [SerializeField]
     private TextAsset textAsset;
 
+    private bool seen = false;
+
     public bool Check()
     {
         foreach (string req in requirements)
@@ -21,7 +23,11 @@ public class AccuseToggle : MonoBehaviour
             }
         }
         gameObject.SetActive(true);
-        popupPanel.Display(textAsset);
+        if (!seen)
+        {
+            popupPanel.Display(textAsset);
+            seen = true;
+        }
         return true;
     }
 }

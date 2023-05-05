@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,9 +11,13 @@ public class JournalPhoto : MonoBehaviour
     public string SubjectName;
 
     public string[] Requirements;
+    public bool Scripted;
 
-    public DialoguePanel ADialoguePanel;
-    public DialogueScript ADialogueScript;
+    // public DialoguePanel ADialoguePanel;
+    // public DialogueScript ADialogueScript;
+
+    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private JournalText textRes;
 
     private bool _unlocked;
 
@@ -32,15 +37,19 @@ public class JournalPhoto : MonoBehaviour
     {
         if (_unlocked)
         {
-            ADialoguePanel.gameObject.SetActive(true);
-            ADialoguePanel.Initialize(ADialogueScript);
-            ADialoguePanel.ShowDialogue();
+            text.text = textRes.Read();
+            // ADialoguePanel.gameObject.SetActive(true);
+            // ADialoguePanel.Initialize(ADialogueScript);
+            // ADialoguePanel.ShowDialogue();
         }
     }
 
     void OnEnable()
     {
-        UpdateImage();
+        if (!Scripted)
+        {
+            UpdateImage();
+        }
     }
 
     void UpdateImage()
