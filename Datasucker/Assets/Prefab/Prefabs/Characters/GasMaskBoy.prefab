@@ -1344,7 +1344,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
@@ -1439,10 +1439,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.0617071
-  m_Height: 0.34754172
+  m_Radius: 0.27
+  m_Height: 1.89
   m_Direction: 1
-  m_Center: {x: 0.0024902823, y: 0.16685, z: 0}
+  m_Center: {x: 0.0024902823, y: 0.88, z: 0}
 --- !u!1 &8800300395886674574
 GameObject:
   m_ObjectHideFlags: 0
