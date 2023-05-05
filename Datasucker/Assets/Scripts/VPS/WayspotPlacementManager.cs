@@ -79,6 +79,9 @@ namespace Niantic.ARDKExamples.WayspotAnchors
 
         private bool IsWaitingToRetry = false;
 
+            public Image ConnectionIcon;
+            public Image DisconnectionIcon;
+
         private void Awake()
         {
             // This is necessary for setting the user id associated with the current user. 
@@ -153,6 +156,9 @@ namespace Niantic.ARDKExamples.WayspotAnchors
                 _localizedReady = true;
                 onLocalized.Invoke();
             }
+            
+            ConnectionIcon.gameObject.SetActive(_localizationState == LocalizationState.Localized);
+            DisconnectionIcon.gameObject.SetActive(_localizationState != LocalizationState.Localized);
         }
 
         /// Saves all of the existing wayspot anchors
