@@ -74,6 +74,7 @@ namespace Niantic.ARDKExamples.WayspotAnchors
         private bool CanPlace;
 
         private GameObject _latest;
+        private System.Guid _latestID;
 
         private void Awake()
         {
@@ -331,6 +332,7 @@ namespace Niantic.ARDKExamples.WayspotAnchors
             go.SetActive(startActive);
             _wayspotAnchorGameObjects.Add(id, go);
             _latest = go;
+            _latestID = id;
 
             return go;
         }
@@ -404,6 +406,7 @@ namespace Niantic.ARDKExamples.WayspotAnchors
             }
 
             _latest.transform.eulerAngles += delta;
+            _wayspotAnchorGameObjects[_latestID].transform.eulerAngles += delta;
         }
 
         public void UpdatePrefabPosition(Vector3 delta) 
@@ -414,6 +417,7 @@ namespace Niantic.ARDKExamples.WayspotAnchors
             }
 
             _latest.transform.position += delta;
+            _wayspotAnchorGameObjects[_latestID].transform.position += delta;
         }
 
         public void UpdatePrefabScale(Vector3 delta)
@@ -424,6 +428,7 @@ namespace Niantic.ARDKExamples.WayspotAnchors
             }
 
             _latest.transform.localScale += delta;
+            _wayspotAnchorGameObjects[_latestID].transform.localScale += delta;
         }
     }
 }
