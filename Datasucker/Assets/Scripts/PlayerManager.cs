@@ -55,6 +55,8 @@ public class PlayerManager : MonoBehaviour
 
     public bool IsAccusing = false;
 
+    [SerializeField] private GameObject jailCell;
+
 
 
     // Serialized tuple list to construct dictionary on start
@@ -74,12 +76,29 @@ public class PlayerManager : MonoBehaviour
 
     public void Accuse(GameObject gameObject) {
         IsTalking = true;
-        StartCoroutine(FinishAccusing(gameObject.name == "Police(Clone)" || gameObject.name == "Police"));
+        StartCoroutine(FinishAccusing(gameObject));
     }
 
-    private IEnumerator FinishAccusing(bool win)
+    private IEnumerator FinishAccusing(GameObject guy)
     {
-        yield return new WaitForSeconds(0.1f);
+        bool win = gameObject.name == "Police(Clone)" || gameObject.name == "Police";
+        float duration = 0.7f;
+        Vector3 a = guy.transform.position + new Vector3(0,3,0);
+        Vector3 b = guy.transform.position;
+        GameObject cell = Instantiate(jailCell, a, Quaternion.identity);
+
+        float timeElapsed = 0;
+        while (timeElapsed < duration)
+        {
+            cell.transform.position = Vector3.Lerp(a, b, timeElapsed / duration);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        cell.transform.position = b;
+
+        guy.GetComponent<Animator>().Play("Jailed");
+        yield return new WaitForSeconds(2);
+
         if (win)
         {
             SceneManager.LoadScene("Success");

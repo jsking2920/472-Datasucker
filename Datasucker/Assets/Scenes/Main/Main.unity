@@ -797,6 +797,8 @@ MonoBehaviour:
   IsTalking: 0
   HasPopupOpen: 0
   IsAccusing: 0
+  jailCell: {fileID: 6059936310411376727, guid: de5af0bdbf3becc43ae775215f3c8b42,
+    type: 3}
   _startProgress: []
 --- !u!4 &406846314
 Transform:
