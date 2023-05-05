@@ -30,7 +30,7 @@ public class DialogueComponent : InteractableComponent
         base.OnObjectTapped();
 
         _dialoguePanel.gameObject.SetActive(true);
-        _dialoguePanel.Initialize(ADialogueScript);
+        _dialoguePanel.Initialize(ADialogueScript, gameObject);
         _dialoguePanel.ShowDialogue();
     }
 }

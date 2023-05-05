@@ -17,7 +17,7 @@ public class AccuseToggle : MonoBehaviour
     {
         foreach (string req in requirements)
         {
-            if (!PlayerManager.Instance.Progress[req])
+            if (!PlayerManager.Instance.CheckProgress(req))
             {
                 return false;
             }

@@ -20,11 +20,12 @@ public class DialoguePanel : MonoBehaviour
     [SerializeField] private AccuseToggle accuseToggle;
     [SerializeField] private Image profileImage;
 
-    public void Initialize(DialogueScript dialogueScript)
+    public void Initialize(DialogueScript dialogueScript, GameObject newSpeaker)
     {
         _dialogue = dialogueScript;
         _dialogue.Initialize();
         voiceBox = GetComponent<AudioSource>();
+        speaker = newSpeaker;
     }
 
     void OnEnable()
@@ -46,7 +47,7 @@ public class DialoguePanel : MonoBehaviour
         {
             gameObject.SetActive(false);
             accuseToggle.Check();
-            speaker.GetComponent<Animator>()?.Play("Idle");
+            speaker.GetComponent<Animator>().Play("Idle");
         }
     }
 
@@ -69,14 +70,14 @@ public class DialoguePanel : MonoBehaviour
         {
             GetChildButton(0).GetComponentInChildren<TextMeshProUGUI>().text = "Ok";
             // Hide buttons besides first one
-            for (int i = 1; i < ResponsePanel.transform.childCount; i++)
+            for (int i = 1; i < 4; i++)
             {
                 GetChildButton(i).gameObject.SetActive(false);
             }
         }
         else 
         {
-            for (int i = 0; i < ResponsePanel.transform.childCount; i++)
+            for (int i = 0; i < 4; i++)
             {
                 bool buttonShouldShow = i < panelText.Count - 1  && !panelText[i+1].Equals(""); //xiao changed this thing
                 Transform childButton = GetChildButton(i);
@@ -95,7 +96,7 @@ public class DialoguePanel : MonoBehaviour
 
         if (speaker != null && animFlag != "")
         {
-            speaker.GetComponent<Animator>()?.Play(animFlag);
+            speaker.GetComponent<Animator>().Play(animFlag);
         }
     }
 
