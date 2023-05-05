@@ -14,6 +14,6 @@ public class DepthManagerDisabler : MonoBehaviour
 
     void Update()
     {
-        depthManager.enabled = Mathf.Pow(transform.forward.y, 2) < 0.5;
+        //depthManager.enabled = Mathf.Pow(transform.forward.y, 2) < 0.5;
     }
 }
