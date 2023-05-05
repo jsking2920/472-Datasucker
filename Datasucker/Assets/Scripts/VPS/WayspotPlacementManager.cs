@@ -175,7 +175,7 @@ namespace Niantic.ARDKExamples.WayspotAnchors
 
         private IEnumerator ClearConnectedTip()
         {
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(2);
             ConnectedTip.gameObject.SetActive(false);
         }
 
