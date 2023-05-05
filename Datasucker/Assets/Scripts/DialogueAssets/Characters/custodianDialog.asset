@@ -23,7 +23,7 @@ MonoBehaviour:
   Lines:
   - Line: "\u201CHey, I suppose you\u2019re here about him.\u201D"
     Responses:
-    - Line: Nod...
+    - Line: Nod
       Next: 1
       Requires: []
     Unlocks:
@@ -32,10 +32,10 @@ MonoBehaviour:
   - Line: "\u201CI\u2019m a custodian here, although I suppose I\u2019ve been roped
       into his mess.\u201D "
     Responses:
-    - Line: Know anything about the victim?
+    - Line: Know anything?
       Next: 2
       Requires: []
-    - Line: I heard you and the victim had an argument
+    - Line: The argument
       Next: 3
       Requires:
       - KnowAboutArgument
@@ -44,7 +44,7 @@ MonoBehaviour:
   - Line: "\u201CWe are just coworkers. Nothing special about that. He is not the
       nicest person I\u2019ve met, but we get along just fine.\u201D "
     Responses:
-    - Line: Where were you last night
+    - Line: Where were you?
       Next: 4
       Requires:
       - '!PoliceLocationKnown'
@@ -62,7 +62,7 @@ MonoBehaviour:
       anyways, he never told me what it  was, and it doesn\u2019t seem like he\u2019ll
       be telling anyone else.\u201D "
     Responses:
-    - Line: Where were you last night
+    - Line: Where were you?
       Next: 4
       Requires:
       - 
@@ -71,8 +71,7 @@ MonoBehaviour:
       Requires: []
     Unlocks: []
     AnimFlag: Talking-2
-  - Line: "\u201CI went back to work after that. The same policeman was patrolling
-      here too\""
+  - Line: '"I was working. I saw that policeman around here, though."'
     Responses:
     - Line: '"Noted"'
       Next: -1

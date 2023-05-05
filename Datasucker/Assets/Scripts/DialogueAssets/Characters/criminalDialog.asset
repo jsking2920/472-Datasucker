@@ -26,7 +26,7 @@ MonoBehaviour:
     - Line: Leave
       Next: -1
       Requires: []
-    - Line: Know anything about the victim?
+    - Line: Know anything?
       Next: 1
       Requires: []
     Unlocks:
@@ -34,11 +34,11 @@ MonoBehaviour:
     AnimFlag: Standing Taunt Battlecry
   - Line: "\u201CI don\u2019t know anything about him, he\u2019s just some mall employee.\""
     Responses:
-    - Line: Where were you last night?
+    - Line: Where were you?
       Next: 2
       Requires:
       - '!criminalLastNight'
-    - Line: Empty holster?
+    - Line: Your gun?
       Next: 3
       Requires:
       - '!criminalGun'
@@ -52,7 +52,7 @@ MonoBehaviour:
       victim and  that custodian over there having a very heated\u2026 discussion,
       before I left. \""
     Responses:
-    - Line: What heated discussion?
+    - Line: Heated discussion?
       Next: 4
       Requires:
       - '!KnowAboutArgument'
@@ -68,8 +68,8 @@ MonoBehaviour:
       listen though, and refuses to let me  take it until the \u201Cscene has been
       cleared\u201D "
     Responses:
-    - Line: Thermal weapom, noted
-      Next: 1
+    - Line: Thermal? Noted.
+      Next: -1
       Requires: []
     Unlocks:
     - criminalGun
@@ -77,7 +77,7 @@ MonoBehaviour:
   - Line: "\u201CI couldn\u2019t hear the details, but they were really shouting
       at each other,  something about something \u201Cbeing too risky\u201D, and
       \u201Cwasted opportunities\u201D.  The officer came up a couple times too.
-      I think they found something  scandalous about him. [Argument] "
+      I think they found something  scandalous about him."
     Responses:
     - Line: Leave
       Next: -1
@@ -90,19 +90,19 @@ MonoBehaviour:
     - Line: Leave
       Next: -1
       Requires: []
-    - Line: Know anything about the victim?
+    - Line: Know anything?
       Next: 1
       Requires:
       - '!criminalDoesntKnowVictim'
-    - Line: Where were you last night?
+    - Line: Where were you?
       Next: 2
       Requires:
       - '!criminalLastNight'
-    - Line: Empty holster?
+    - Line: Your gun?
       Next: 3
       Requires:
       - '!criminalGun'
-    - Line: What heated discussion?
+    - Line: Heated discussion?
       Next: 4
       Requires:
       - '!KnowAboutArgument'

@@ -24,8 +24,8 @@ MonoBehaviour:
     - bodySeen
     AnimFlag: 
   - Line: The victim clearly fell from a great height, judging by the contorted position
-      of their broken limbs. The clothes around the gunshot wound are soaked in blood,
-      now dry, but still fresh.
+      of their broken limbs. A bullet seems to be visible among the blood-soaked
+      clothes, now dry, but still fresh.
     Responses:
     - Line: Ok
       Next: -1

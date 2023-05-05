@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a7393d88f114c4494927782692fb5f, type: 3}
   m_Name: GunDialogue
   m_EditorClassIdentifier: 
+  ProfileSprite: {fileID: 0}
   Starts: []
   Lines:
-  - Line: A standard laser pistol, worn with use, and not well-maintained. Its serial
-      numbers have been filed away.
+  - Line: A standard thermal pistol, worn with use, and not well-maintained. Its
+      serial numbers have been filed away.
     Responses:
     - Line: Ok
       Next: -1
       Requires: []
     Unlocks:
     - gunSeen
+    AnimFlag: 
   HasVoice: 0

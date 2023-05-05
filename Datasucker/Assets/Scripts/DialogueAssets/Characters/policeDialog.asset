@@ -83,6 +83,9 @@ MonoBehaviour:
   - Line: '"Huh? Why would I let some rando like you help out with something as confidential
       as this? Get out of here!"'
     Responses:
+    - Line: Leave
+      Next: -1
+      Requires: []
     - Line: The victim?
       Next: 1
       Requires:
@@ -96,9 +99,6 @@ MonoBehaviour:
       Requires:
       - policeLocationKnown
       - '!confirmedPoliceLocation'
-    - Line: Leave
-      Next: -1
-      Requires: []
     Unlocks: []
     AnimFlag: Yelling
   HasVoice: 1
