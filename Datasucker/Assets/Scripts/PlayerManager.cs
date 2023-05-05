@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class ProgressEntry
@@ -73,7 +74,20 @@ public class PlayerManager : MonoBehaviour
 
     public void Accuse(GameObject gameObject) {
         IsTalking = true;
+        StartCoroutine(FinishAccusing(gameObject.name == "Police(Clone)" || gameObject.name == "Police"));
+    }
 
+    private IEnumerator FinishAccusing(bool win)
+    {
+        yield return new WaitForSeconds(0.1f);
+        if (win)
+        {
+            SceneManager.LoadScene("Success");
+        }
+        else
+        {
+            SceneManager.LoadScene("Fail");
+        }
     }
 
     public void SetAccusing(bool isAccusing)
