@@ -1191,6 +1191,8 @@ MonoBehaviour:
   CanPlace: 0
   ConnectionIcon: {fileID: 273514974}
   DisconnectionIcon: {fileID: 117222266}
+  ConnectionTip: {fileID: 1793966405}
+  ConnectedTip: {fileID: 972554906}
 --- !u!4 &685291406
 Transform:
   m_ObjectHideFlags: 0
