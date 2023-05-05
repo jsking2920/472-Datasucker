@@ -14,6 +14,6 @@ public class DepthManagerDisabler : MonoBehaviour
 
     void Update()
     {
-        //depthManager.OcclusionTechnique = transform.forward.y < 0.7 ? Niantic.ARDK.Extensions.ARDepthManager.OcclusionMode.Auto : Niantic.ARDK.Extensions.ARDepthManager.OcclusionMode.None;
+        depthManager.enabled = Mathf.Pow(transform.forward.y, 2) < 0.5;
     }
 }
