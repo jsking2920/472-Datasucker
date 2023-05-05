@@ -316,6 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: febe5928684d1f4449045acbb68f0498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  accuseToggle: {fileID: 0}
 --- !u!1 &1489628183607207414
 GameObject:
   m_ObjectHideFlags: 0

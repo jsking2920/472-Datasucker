@@ -24,7 +24,10 @@ public class JournalPhoto : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (Scripted)
+        {
+            _unlocked = true;
+        }
     }
 
     // Update is called once per frame
