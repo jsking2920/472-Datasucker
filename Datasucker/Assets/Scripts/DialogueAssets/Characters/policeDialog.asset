@@ -32,7 +32,7 @@ MonoBehaviour:
       Requires: []
     Unlocks:
     - policeSeen
-    AnimFlag: 
+    AnimFlag: Standing Arguing
   - Line: "\u201CHe works here as a janitor. Time of death, 2am last night. Cause
       of death,  gun shot\u201D "
     Responses:
@@ -44,8 +44,8 @@ MonoBehaviour:
       Requires: []
     Unlocks:
     - knownBasicInfoFromPolice
-    AnimFlag: 
-  - Line: "\u201CThe gun belongs to that guy over there. He keeps saying he doesn\u2019t
+    AnimFlag: Talking
+  - Line: "\u201CThe gun belongs to that guy at the bar. He keeps saying he doesn\u2019t
       know,  but it sure is evidence\u201D "
     Responses:
     - Line: Were you here yesterday too?
@@ -57,7 +57,7 @@ MonoBehaviour:
       Requires: []
     Unlocks:
     - knowGunFromPolice
-    AnimFlag: 
+    AnimFlag: Talking
   - Line: " \u201CI was patrolling in the area. It\u2019s not the safest zone in
       the city for sure.\u201D"
     Responses:
@@ -69,7 +69,7 @@ MonoBehaviour:
       Requires: []
     Unlocks:
     - confirmedPoliceLocation
-    AnimFlag: 
+    AnimFlag: Talking
   - Line: "\u201CSuspicious\u2026you know what? Now I think about it, this guy has
       been following and eavesdropping the victim since yesterday. I usually ignore
       them;  it\u2019s just what these people do all day anyways\u201D  "
@@ -79,7 +79,7 @@ MonoBehaviour:
       Requires: []
     Unlocks:
     - policeSaidCriminalIsSUS
-    AnimFlag: 
+    AnimFlag: Telling A Secret
   - Line: '"Huh? Why would I let some rando like you help out with something as confidential
       as this? Get out of here!"'
     Responses:
@@ -100,5 +100,5 @@ MonoBehaviour:
       - policeLocationKnown
       - '!confirmedPoliceLocation'
     Unlocks: []
-    AnimFlag: 
-  HasVoice: 0
+    AnimFlag: Yelling
+  HasVoice: 1

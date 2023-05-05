@@ -28,7 +28,7 @@ MonoBehaviour:
       Requires: []
     Unlocks:
     - gasSeen
-    AnimFlag: 
+    AnimFlag: Talking
   - Line: "\u201CI\u2019m a custodian here, although I suppose I\u2019ve been roped
       into his mess.\u201D "
     Responses:
@@ -40,9 +40,9 @@ MonoBehaviour:
       Requires:
       - KnowAboutArgument
     Unlocks: []
-    AnimFlag: 
+    AnimFlag: Talking-2
   - Line: "\u201CWe are just coworkers. Nothing special about that. He is not the
-      nicest   person I\u2019ve met, but we get along just fine.\u201D "
+      nicest person I\u2019ve met, but we get along just fine.\u201D "
     Responses:
     - Line: Where were you last night
       Next: 4
@@ -53,7 +53,7 @@ MonoBehaviour:
       Requires: []
     Unlocks:
     - 
-    AnimFlag: 
+    AnimFlag: Talking
   - Line: "\u201COh\u2026 I wouldn\u2019t call it an argument. Last night, he was
       gonna show me some  secret about the police officer outside. Why wouldn\u2019t
       I wanna see that?  Anyways, he thought it would be a good idea to hold onto
@@ -70,7 +70,7 @@ MonoBehaviour:
       Next: -1
       Requires: []
     Unlocks: []
-    AnimFlag: 
+    AnimFlag: Talking-2
   - Line: "\u201CI went back to work after that. The same policeman was patrolling
       here too\""
     Responses:
@@ -79,5 +79,5 @@ MonoBehaviour:
       Requires: []
     Unlocks:
     - policeLocationKnown
-    AnimFlag: 
-  HasVoice: 0
+    AnimFlag: Talking
+  HasVoice: 1

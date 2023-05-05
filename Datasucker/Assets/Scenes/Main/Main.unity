@@ -1800,7 +1800,7 @@ PrefabInstance:
     - target: {fileID: 5135245121719449387, guid: bbc51bb1939bdf042a8e9d742b5264d6,
         type: 3}
       propertyPath: Requirements.Array.data[0]
-      value: CopSeen
+      value: policeSeen
       objectReference: {fileID: 0}
     - target: {fileID: 5135245121719449388, guid: bbc51bb1939bdf042a8e9d742b5264d6,
         type: 3}

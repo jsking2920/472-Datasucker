@@ -31,7 +31,7 @@ MonoBehaviour:
       Requires: []
     Unlocks:
     - criminalSeen
-    AnimFlag: 
+    AnimFlag: Standing Taunt Battlecry
   - Line: "\u201CI don\u2019t know anything about him, he\u2019s just some mall employee.\""
     Responses:
     - Line: Where were you last night?
@@ -47,7 +47,7 @@ MonoBehaviour:
       Requires: []
     Unlocks:
     - criminalDoesntKnowVictim
-    AnimFlag: 
+    AnimFlag: Talking
   - Line: "\u201CI was here in the evening, but I left at night. I did overhear the
       victim and  that custodian over there having a very heated\u2026 discussion,
       before I left. \""
@@ -61,7 +61,7 @@ MonoBehaviour:
       Requires: []
     Unlocks:
     - criminalLastNight
-    AnimFlag: 
+    AnimFlag: Talking-2
   - Line: "\u201CYeah that\u2019s mine alright, though I couldn\u2019t tell you how
       it got there. It went  missing sometime last night. I can tell you it wasn\u2019t
       used to kill him though.  It\u2019s a thermal weapon. The officer won\u2019t
@@ -73,7 +73,7 @@ MonoBehaviour:
       Requires: []
     Unlocks:
     - criminalGun
-    AnimFlag: 
+    AnimFlag: Talking
   - Line: "\u201CI couldn\u2019t hear the details, but they were really shouting
       at each other,  something about something \u201Cbeing too risky\u201D, and
       \u201Cwasted opportunities\u201D.  The officer came up a couple times too.
@@ -84,7 +84,7 @@ MonoBehaviour:
       Requires: []
     Unlocks:
     - KnowAboutArgument
-    AnimFlag: 
+    AnimFlag: Talking-2
   - Line: '"What else do you want from me?"'
     Responses:
     - Line: Leave
@@ -107,5 +107,5 @@ MonoBehaviour:
       Requires:
       - '!KnowAboutArgument'
     Unlocks: []
-    AnimFlag: 
-  HasVoice: 0
+    AnimFlag: Talking
+  HasVoice: 1
