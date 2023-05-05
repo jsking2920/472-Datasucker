@@ -24,7 +24,7 @@ MonoBehaviour:
   - Line: "\u201CI see they\u2019ve hired outside help for this worthless nobody.
       Seems like a waste of money to me.\u201D "
     Responses:
-    - Line: What do you know about the victim, officer?
+    - Line: The victim?
       Next: 1
       Requires: []
     - Line: Leave
@@ -36,7 +36,7 @@ MonoBehaviour:
   - Line: "\u201CHe works here as a janitor. Time of death, 2am last night. Cause
       of death,  gun shot\u201D "
     Responses:
-    - Line: Gun shot, who does the gun belong to?
+    - Line: Whose gun?
       Next: 2
       Requires: []
     - Line: Leave
@@ -48,7 +48,7 @@ MonoBehaviour:
   - Line: "\u201CThe gun belongs to that guy at the bar. He keeps saying he doesn\u2019t
       know,  but it sure is evidence\u201D "
     Responses:
-    - Line: Were you here yesterday too?
+    - Line: Where were you?
       Next: 3
       Requires:
       - policeLocationKnown
@@ -61,7 +61,7 @@ MonoBehaviour:
   - Line: " \u201CI was patrolling in the area. It\u2019s not the safest zone in
       the city for sure.\u201D"
     Responses:
-    - Line: Anyone suspicious you saw?
+    - Line: Anything suspicious?
       Next: 4
       Requires: []
     - Line: Leave
@@ -83,22 +83,22 @@ MonoBehaviour:
   - Line: '"Huh? Why would I let some rando like you help out with something as confidential
       as this? Get out of here!"'
     Responses:
-    - Line: Leave
-      Next: -1
-      Requires: []
-    - Line: What do you know about the victim, officer?
+    - Line: The victim?
       Next: 1
       Requires:
       - '!knownBasicInfoFromPolice'
-    - Line: Anyone suspicious you saw?
+    - Line: Anything suspicious?
       Next: 4
       Requires:
       - '!policeSaidCriminalIsSUS'
-    - Line: Were you here yesterday too?
+    - Line: Where were you?
       Next: 3
       Requires:
       - policeLocationKnown
       - '!confirmedPoliceLocation'
+    - Line: Leave
+      Next: -1
+      Requires: []
     Unlocks: []
     AnimFlag: Yelling
   HasVoice: 1
