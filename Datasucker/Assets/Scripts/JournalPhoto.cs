@@ -59,7 +59,7 @@ public class JournalPhoto : MonoBehaviour
     {
         string path = Path.Combine(Application.persistentDataPath, "JournalPhotos", SubjectName + ".png");
         Debug.Log(path);
-        if (_unlocked = (File.Exists(path)))
+        if (_unlocked = CheckRequirements())
         {
             byte[] fileData = File.ReadAllBytes(path);
             Texture2D texture = new Texture2D(2, 2);

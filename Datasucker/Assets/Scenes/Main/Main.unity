@@ -186,7 +186,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1489628183474243592}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -395,7 +395,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1489628183474243592}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -896,6 +896,12 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 1445051107}
+    - target: {fileID: 5135245121719449387, guid: bbc51bb1939bdf042a8e9d742b5264d6,
+        type: 3}
+      propertyPath: textRes
+      value: 
+      objectReference: {fileID: 11400000, guid: 5fcb1db0228ca5340a7f551a025e5fd9,
+        type: 2}
     - target: {fileID: 5135245121719449387, guid: bbc51bb1939bdf042a8e9d742b5264d6,
         type: 3}
       propertyPath: SubjectName
@@ -1500,7 +1506,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1489628183474243592}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1899,6 +1905,12 @@ PrefabInstance:
       objectReference: {fileID: 1445051107}
     - target: {fileID: 5135245121719449387, guid: bbc51bb1939bdf042a8e9d742b5264d6,
         type: 3}
+      propertyPath: textRes
+      value: 
+      objectReference: {fileID: 11400000, guid: 024c572880a8877439cdc4791554604e,
+        type: 2}
+    - target: {fileID: 5135245121719449387, guid: bbc51bb1939bdf042a8e9d742b5264d6,
+        type: 3}
       propertyPath: SubjectName
       value: Police(Clone)
       objectReference: {fileID: 0}
@@ -2102,6 +2114,12 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 1445051107}
+    - target: {fileID: 5135245121719449387, guid: bbc51bb1939bdf042a8e9d742b5264d6,
+        type: 3}
+      propertyPath: textRes
+      value: 
+      objectReference: {fileID: 11400000, guid: 59c657e20a7e17d4a8453a00957da8f0,
+        type: 2}
     - target: {fileID: 5135245121719449387, guid: bbc51bb1939bdf042a8e9d742b5264d6,
         type: 3}
       propertyPath: SubjectName
@@ -2478,7 +2496,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1489628183474243592}
-  m_RootOrder: 8
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3483,7 +3501,7 @@ RectTransform:
   - {fileID: 1433756009945391616}
   - {fileID: 1433756010330869151}
   m_Father: {fileID: 1489628183474243592}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3823,6 +3841,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -0.0066223145
       objectReference: {fileID: 0}
+    - target: {fileID: 1489628183259094251, guid: 5d7be9c440193704d99f3b57149576c6,
+        type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1445051107}
     - target: {fileID: 1489628183259094251, guid: 5d7be9c440193704d99f3b57149576c6,
         type: 3}
       propertyPath: accuseToggle
@@ -4419,6 +4442,12 @@ PrefabInstance:
       objectReference: {fileID: 1445051107}
     - target: {fileID: 6046142748792334266, guid: 5d7be9c440193704d99f3b57149576c6,
         type: 3}
+      propertyPath: textRes
+      value: 
+      objectReference: {fileID: 11400000, guid: 326f1e07f0a5100469d950035993883c,
+        type: 2}
+    - target: {fileID: 6046142748792334266, guid: 5d7be9c440193704d99f3b57149576c6,
+        type: 3}
       propertyPath: SubjectName
       value: Body(Clone)
       objectReference: {fileID: 0}
@@ -4484,6 +4513,12 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 1445051107}
+    - target: {fileID: 6046142749157261329, guid: 5d7be9c440193704d99f3b57149576c6,
+        type: 3}
+      propertyPath: textRes
+      value: 
+      objectReference: {fileID: 11400000, guid: 09546792a8e8f674282833f33d5aa32e,
+        type: 2}
     - target: {fileID: 6046142749157261329, guid: 5d7be9c440193704d99f3b57149576c6,
         type: 3}
       propertyPath: SubjectName

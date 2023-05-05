@@ -34,10 +34,7 @@ public class JournalText : ScriptableObject
     {
         foreach (string req in line.Requires)
         {
-            if ((req[0] == '!') == PlayerManager.Instance.CheckProgress(req.Substring(1)))
-            {
-                return false;
-            }
+            if (!PlayerManager.Instance.CheckProgress(req)) return false;
         }
         return true;
     }

@@ -52,7 +52,7 @@ MonoBehaviour:
       Next: -1
       Requires: []
     Unlocks:
-    - 
+    - coworkers
     AnimFlag: Talking
   - Line: "\u201COh\u2026 I wouldn\u2019t call it an argument. Last night, he was
       gonna show me some  secret about the police officer outside. Why wouldn\u2019t
@@ -64,12 +64,12 @@ MonoBehaviour:
     Responses:
     - Line: Where were you?
       Next: 4
-      Requires:
-      - 
+      Requires: []
     - Line: Leave
       Next: -1
       Requires: []
-    Unlocks: []
+    Unlocks:
+    - knowsPoliceSecret
     AnimFlag: Talking-2
   - Line: '"I was working. I saw that policeman around here, though."'
     Responses:
