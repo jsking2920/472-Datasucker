@@ -46,6 +46,7 @@ public class DialoguePanel : MonoBehaviour
         {
             gameObject.SetActive(false);
             accuseToggle.Check();
+            speaker.GetComponent<Animator>()?.Play("Idle");
         }
     }
 
@@ -94,7 +95,7 @@ public class DialoguePanel : MonoBehaviour
 
         if (speaker != null && animFlag != "")
         {
-            speaker.GetComponent<Animator>()?.SetTrigger(animFlag);
+            speaker.GetComponent<Animator>()?.Play(animFlag);
         }
     }
 

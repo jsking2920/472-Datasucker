@@ -560,6 +560,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 869153695505301964}
     m_Modifications:
+    - target: {fileID: 2616423848742117653, guid: 1f2048058cc83fe4182c259191cf37a3,
+        type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: e8c94198af0eb47b586600625d2a2587, type: 3}
+    - target: {fileID: 2616423848742117653, guid: 1f2048058cc83fe4182c259191cf37a3,
+        type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616423848742117653, guid: 1f2048058cc83fe4182c259191cf37a3,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4050758230765978834, guid: 1f2048058cc83fe4182c259191cf37a3,
+        type: 3}
+      propertyPath: Accusable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8263906803966786415, guid: 1f2048058cc83fe4182c259191cf37a3,
         type: 3}
       propertyPath: m_RootOrder

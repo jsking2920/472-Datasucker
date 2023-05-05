@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a7393d88f114c4494927782692fb5f, type: 3}
   m_Name: BodyDialogue
   m_EditorClassIdentifier: 
+  ProfileSprite: {fileID: 0}
   Starts: []
   Lines:
   - Line: A corpse lies broken on the floor, a gunshot wound in its chest.
@@ -19,7 +20,9 @@ MonoBehaviour:
     - Line: Inspect body
       Next: 1
       Requires: []
-    Unlocks: []
+    Unlocks:
+    - bodySeen
+    AnimFlag: 
   - Line: The victim clearly fell from a great height, judging by the contorted position
       of their broken limbs. The clothes around the gunshot wound are soaked in blood,
       now dry, but still fresh.
@@ -29,4 +32,5 @@ MonoBehaviour:
       Requires: []
     Unlocks:
     - bodySeen
+    AnimFlag: 
   HasVoice: 0
