@@ -1,5 +1,6 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -75,6 +76,8 @@ namespace Niantic.ARDKExamples.WayspotAnchors
 
         private GameObject _latest;
         private System.Guid _latestID;
+
+        private bool IsWaitingToRetry = false;
 
         private void Awake()
         {
@@ -257,6 +260,7 @@ namespace Niantic.ARDKExamples.WayspotAnchors
         /// Restarts Wayspot Anchor Service
         public void RestartWayspotAnchorService()
         {
+            IsWaitingToRetry = false;
             _wayspotAnchorService.Restart();
             _localizedReady = false;
         }
@@ -281,7 +285,23 @@ namespace Niantic.ARDKExamples.WayspotAnchors
             _localizationStatus.text =
                 $"Localization Status: {args.State} " +
                 (args.State == LocalizationState.Failed ? $"(Reason: {args.FailureReason})" : "");
+            
+            if (args.State == LocalizationState.Failed && !IsWaitingToRetry)
+            {
+                IsWaitingToRetry = true;
+
+            }
         }
+
+        private IEnumerator WaitAndRetry()
+        {
+            yield return new WaitForSeconds(3);
+            if (IsWaitingToRetry)
+            {
+                RestartWayspotAnchorService();
+            }
+        }
+
         private WayspotAnchorService CreateWayspotAnchorService()
         {
             var locationService = LocationServiceFactory.Create(_arSession.RuntimeEnvironment);
