@@ -456,7 +456,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &284116739
 RectTransform:
   m_ObjectHideFlags: 0
@@ -827,6 +827,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrimeScene
       objectReference: {fileID: 0}
+    - target: {fileID: 8185992121934994117, guid: 0946c39426db5264987224a9e59fb79e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8797073596866103545, guid: 0946c39426db5264987224a9e59fb79e,
         type: 3}
       propertyPath: m_RootOrder
@@ -905,7 +910,7 @@ PrefabInstance:
     - target: {fileID: 5135245121719449387, guid: bbc51bb1939bdf042a8e9d742b5264d6,
         type: 3}
       propertyPath: SubjectName
-      value: GasMaskBoy(Clone)
+      value: GasMaskBoy
       objectReference: {fileID: 0}
     - target: {fileID: 5135245121719449387, guid: bbc51bb1939bdf042a8e9d742b5264d6,
         type: 3}
@@ -1912,7 +1917,7 @@ PrefabInstance:
     - target: {fileID: 5135245121719449387, guid: bbc51bb1939bdf042a8e9d742b5264d6,
         type: 3}
       propertyPath: SubjectName
-      value: Police(Clone)
+      value: Police
       objectReference: {fileID: 0}
     - target: {fileID: 5135245121719449387, guid: bbc51bb1939bdf042a8e9d742b5264d6,
         type: 3}
@@ -2123,7 +2128,7 @@ PrefabInstance:
     - target: {fileID: 5135245121719449387, guid: bbc51bb1939bdf042a8e9d742b5264d6,
         type: 3}
       propertyPath: SubjectName
-      value: Gun(Clone)
+      value: Gun
       objectReference: {fileID: 0}
     - target: {fileID: 5135245121719449387, guid: bbc51bb1939bdf042a8e9d742b5264d6,
         type: 3}
@@ -2681,6 +2686,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FINAL BarScene
       objectReference: {fileID: 0}
+    - target: {fileID: 8148486442192824062, guid: 91747eb451ab8f6478af31e07e997089,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8993711691034278421, guid: 91747eb451ab8f6478af31e07e997089,
         type: 3}
       propertyPath: m_RootOrder
@@ -2836,6 +2846,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CustodianScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945680623478287023, guid: 3be799fd651bd79418cce222f561c30c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3be799fd651bd79418cce222f561c30c, type: 3}
@@ -4449,7 +4464,7 @@ PrefabInstance:
     - target: {fileID: 6046142748792334266, guid: 5d7be9c440193704d99f3b57149576c6,
         type: 3}
       propertyPath: SubjectName
-      value: Body(Clone)
+      value: Body
       objectReference: {fileID: 0}
     - target: {fileID: 6046142748792334266, guid: 5d7be9c440193704d99f3b57149576c6,
         type: 3}
@@ -4522,7 +4537,7 @@ PrefabInstance:
     - target: {fileID: 6046142749157261329, guid: 5d7be9c440193704d99f3b57149576c6,
         type: 3}
       propertyPath: SubjectName
-      value: Gang(Clone)
+      value: Gang
       objectReference: {fileID: 0}
     - target: {fileID: 6046142749157261329, guid: 5d7be9c440193704d99f3b57149576c6,
         type: 3}

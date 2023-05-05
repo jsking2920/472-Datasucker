@@ -367,8 +367,6 @@ namespace Niantic.ARDKExamples.WayspotAnchors
             {
                 go = Instantiate(gameObject, position, rotation);
                 go.transform.localScale = scale;
-                go.transform.position += position;
-                go.transform.rotation *= rotation;
             }
             else {
                 go = Instantiate(_anchorPrefab.gameObject, position, rotation);

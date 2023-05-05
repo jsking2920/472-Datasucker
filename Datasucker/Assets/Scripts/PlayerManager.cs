@@ -81,7 +81,7 @@ public class PlayerManager : MonoBehaviour
 
     private IEnumerator FinishAccusing(GameObject guy)
     {
-        bool win = gameObject.name == "Police(Clone)" || gameObject.name == "Police";
+        bool win = guy.name == "Police";
         float duration = 0.7f;
         Vector3 a = guy.transform.position + new Vector3(0,3,0);
         Vector3 b = guy.transform.position;
@@ -96,7 +96,7 @@ public class PlayerManager : MonoBehaviour
         }
         cell.transform.position = b;
 
-        guy.GetComponent<Animator>().Play("Jailed");
+        //guy.GetComponent<Animator>().Play("Jailed");
         yield return new WaitForSeconds(2);
 
         if (win)
