@@ -1,4 +1,4 @@
-# 472-Datasucker
+# Cyber Sleuth
 
 Download at [scottking.itch.io/cyber-sleuth](scottking.itch.io/cyber-sleuth)
 
