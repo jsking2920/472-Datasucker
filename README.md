@@ -1,7 +1,5 @@
 # 472-Datasucker
 
-A mobile AR game developed with the Niantic Lightship ARDK for 53-472 at CMU
+Download at [scottking.itch.io/cyber-sleuth](scottking.itch.io/cyber-sleuth)
 
-## Attributions:
-- "_" _ <br>
-	(_) by _ is licensed under _
+A mobile AR game developed with Niantic's Lightship ARDK in Unity by Sarah Cho, Stacey Cho, Xiao Han, Scott King, Andrew Knowles, Michael Wong, and Lela Yuan
